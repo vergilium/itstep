@@ -126,7 +126,6 @@
   <ItemGroup>
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="Employer.cpp" />
-    <ClCompile Include="list.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

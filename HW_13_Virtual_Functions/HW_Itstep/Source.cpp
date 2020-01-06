@@ -2,6 +2,7 @@
 
 #include "Employer.h"
 #include "Area.h"
+#include "list.h"
 
 using namespace std;
 
@@ -25,6 +26,10 @@ int main() {
 					new RightTriangle(10,20),
 					new Trapeze(10,20,5)};
 
+	List<int>* st = new Stack<int>();
+	List<int>* que = new Queue<int>();
+
+
 	switch (task) {
 	case 1:
 		P->print();
@@ -32,6 +37,22 @@ int main() {
 		W->print();
 		break;
 	case 2:
+		cout << "Stack`s pushing: 10; 11;" << endl;
+		st->push(10);
+		st->push(11);
+		cout << "Stack`s pop out: ";
+		cout << st->pop() << "; ";
+		cout << st->pop() << ";" << endl;
+
+		cout << "Queue pushing: 10; 11; 12" << endl;
+		que->push(10);
+		que->push(11);
+		que->push(12);
+
+		cout << "Queue pop out: ";
+		cout << que->pop() << "; ";
+		cout << que->pop() << "; ";
+		cout << que->pop() << ";" << endl;
 		break;
 	case 3:
 		for (size_t i=0; i < 4; ++i) {
