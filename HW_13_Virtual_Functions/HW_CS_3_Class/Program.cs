@@ -97,23 +97,94 @@ namespace HW_CS_3_Class
     /// </summary>
     /// 
     enum Subject : UInt16 { Programming, Administration, Design};
+    public struct Marks
+    {
+        private int[][] m_marks;
+        public int index { get; set; }
+        public Marks(uint mBuff = 10)
+        {
+            int subjElems = Enum.GetNames(typeof(Subject)).Length;
+            m_marks = new int[subjElems][];
+            for (int i = 0; i < subjElems; ++i)
+            {
+                m_marks[i] = new int[mBuff];
+            }
+            index = 0;
+        }
+
+        public int this[int subj]
+        {
+            get
+            {
+                return Array.FindAll(m_marks[subj], elem => elem != 0)[index];
+            }
+            set
+            {
+                if(m_marks[subj].Count(s => s != 0) >= m_marks[subj].Length)
+                {
+                    int[] buf = new int[m_marks[subj].Length + 10];
+                    Array.Copy(m_marks[subj], buf, m_marks[subj].Length);
+                    m_marks[subj] = buf;
+                }
+
+                m_marks[subj][Array.IndexOf(m_marks[subj], 0)] = value;
+                
+            }
+        }
+    }
     class Student
     {
-        public string firstName { get; private set; }
-        public string lastName { get; private set; }
-        public string surNmae { get; private set; }
-        public string groupe { get; private set; }
-        public int[][] marks = new int[Enum.GetNames(typeof(Subject)).Length][];
-
-        public void addMark (Subject subj, int mark)
+        public string m_firstName { get; private set; }
+        public string m_lastName { get; private set; }
+        public string m_surNmae { get; private set; }
+        public string m_groupe { get; private set; }
+        public Marks m_marks;
+        public Student(string firstName, string lastName, string surNmae, string groupe)
         {
-            marks[subj].r
+            m_firstName = firstName;
+            m_lastName = lastName;
+            m_surNmae = surNmae;
+            m_groupe = groupe;
+            m_marks = new Marks(10);
+        }
+
+        public void AddMark(Subject subj, int mark)
+        {
+            m_marks[(int)subj] = mark;
+        }
+
+        public float avgMarks(Subject subj)
+        {
+            int i = 0, sum = 0;
+            try
+            {
+                for (; ; )
+                {
+                    m_marks.index = i;
+                    sum += m_marks[(int)subj];
+                    i++;
+                }
+            }catch (IndexOutOfRangeException)
+            {
+                return (i>0)?(sum / i):0;
+            }
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
+            Random rnd = new Random();
+            Student st = new Student("Alex", "Maloivan", "Oleksandrovich", "VPO19-2");
+            for (int i = 0; i < 15; ++i)
+            {
+                st.AddMark(Subject.Programming, rnd.Next(1, 12));
+                st.AddMark(Subject.Administration, rnd.Next(1, 12));
+                st.AddMark(Subject.Design, rnd.Next(1, 12));
+            }
+            Console.WriteLine(st.avgMarks(Subject.Administration));
+            Console.WriteLine(st.avgMarks(Subject.Design));
+            Console.WriteLine(st.avgMarks(Subject.Programming));
         }
     }
 }
