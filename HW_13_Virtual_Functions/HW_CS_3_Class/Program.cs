@@ -116,7 +116,9 @@ namespace HW_CS_3_Class
         {
             get
             {
-                return Array.FindAll(m_marks[subj], elem => elem != 0)[index];
+                var buf = Array.FindAll(m_marks[subj], elem => elem != 0);
+                
+                return buf[++index < buf.Length?index:index=0];
             }
             set
             {
@@ -130,6 +132,11 @@ namespace HW_CS_3_Class
                 m_marks[subj][Array.IndexOf(m_marks[subj], 0)] = value;
                 
             }
+        }
+
+        public int _getLenght(int subj)
+        {
+            return Array.FindAll(m_marks[subj], elem => elem != 0).Count();
         }
     }
     class Student
@@ -153,20 +160,29 @@ namespace HW_CS_3_Class
             m_marks[(int)subj] = mark;
         }
 
-        public float avgMarks(Subject subj)
+        public float avgMarks(int subj)
         {
-            int i = 0, sum = 0;
-            try
+            int i, sum = 0;
+            for (i=0; i<m_marks._getLenght(subj); ++i)
+            { 
+                m_marks.index = i;
+                sum += m_marks[subj];
+            }
+            return (i>0)?(sum / i):0;
+        }
+
+        public void print()
+        {
+            Console.WriteLine($"Student fullname: {m_firstName} {m_lastName} {m_surNmae}");
+            Console.WriteLine($"Student groupe {m_groupe}");
+            for (int i = 0; i < Enum.GetNames(typeof(Subject)).Length; i++)
             {
-                for (; ; )
-                {
-                    m_marks.index = i;
-                    sum += m_marks[(int)subj];
-                    i++;
-                }
-            }catch (IndexOutOfRangeException)
-            {
-                return (i>0)?(sum / i):0;
+                Console.Write($"Marks of {Enum.GetName(typeof(Subject), i)}: ");
+                    for(int s=0; s<m_marks._getLenght(i); ++s)
+                    {
+                        Console.Write($" { m_marks[i]} |");
+                    }
+                Console.WriteLine($" Average: {avgMarks(i)}");
             }
         }
     }
@@ -182,9 +198,9 @@ namespace HW_CS_3_Class
                 st.AddMark(Subject.Administration, rnd.Next(1, 12));
                 st.AddMark(Subject.Design, rnd.Next(1, 12));
             }
-            Console.WriteLine(st.avgMarks(Subject.Administration));
-            Console.WriteLine(st.avgMarks(Subject.Design));
-            Console.WriteLine(st.avgMarks(Subject.Programming));
+
+            st.print();
+            Console.ReadKey();
         }
     }
 }
