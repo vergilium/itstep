@@ -186,10 +186,38 @@ namespace HW_CS_3_Class
             }
         }
     }
+    /// <summary>
+    /// 10 Разработать приложение, в котором бы сравнивалось
+    ///население трёх столиц из разных стран Причём страна бы обозначалась пространством имён, а город —
+    ///классом в данном пространстве
+    /// </summary>
+    namespace Ukraine
+    {
+        public class Kyiv
+        {
+            public uint population { get; private set; } = 3700000;
+        }
+    }
+    namespace USA
+    {
+        public class Vashington
+        {
+            public uint population { get; private set; } = 601723;
+        }
+    }
+    namespace China
+    {
+        public class Pekin
+        {
+            public uint population { get; private set; } = 21705000;
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            //////////////////К заданию 8
             Random rnd = new Random();
             Student st = new Student("Alex", "Maloivan", "Oleksandrovich", "VPO19-2");
             for (int i = 0; i < 15; ++i)
@@ -200,6 +228,11 @@ namespace HW_CS_3_Class
             }
 
             st.print();
+
+            //К заданию 10
+            Console.WriteLine($"{Ukraine.Kyiv}")
+
+
             Console.ReadKey();
         }
     }
