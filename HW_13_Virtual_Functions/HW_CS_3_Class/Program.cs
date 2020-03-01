@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SevenWonders;
 
 namespace HW_CS_3_Class
 {
@@ -229,11 +230,44 @@ namespace HW_CS_3_Class
 
             st.print();
 
+
             //К заданию 10
-            Console.WriteLine($"{Ukraine.Kyiv}")
+            Ukraine.Kyiv kyiv = new Ukraine.Kyiv();
+            USA.Vashington vash = new USA.Vashington();
+            China.Pekin pek = new China.Pekin();
+            if(kyiv.population > vash.population && kyiv.population > pek.population) Console.WriteLine($"In Kyiv lives {kyiv.population} peoples.");
+            if(vash.population > kyiv.population && vash.population > pek.population) Console.WriteLine($"In Vashington lives {vash.population} peoples.");
+            if(pek.population > kyiv.population && pek.population > vash.population) Console.WriteLine($"In Pekin lives {pek.population} peoples.");
+            Console.WriteLine("It`s more than others =)");
+
 
 
             Console.ReadKey();
+        }
+    }
+}
+
+namespace SevenWonders
+{
+    /// <summary>
+    /// 9 Разработайте приложение «7 чудес света», где каждое
+    ///чудо будет представлено отдельным классом Создайте дополнительный класс, содержащий точку входа
+    ///Распределите приложение по файлам проекта и с помощью пространства имён обеспечьте возможность
+    ///взаимодействия классов
+    /// </summary>
+    /// 
+    class SevenWonders
+    {
+        static void Main(string[] args)
+        {
+            first_wonder piramid = new first_wonder();
+            seconds_wonder colossus = new seconds_wonder();
+            third_wonder hanging = new third_wonder();
+            fourth_wonder lighthouse = new fourth_wonder();
+            fifth_wonder mausoleum = new fifth_wonder();
+            sixth_wonder zeuse = new sixth_wonder();
+            seventh_wonder temple = new seventh_wonder();
+
         }
     }
 }
