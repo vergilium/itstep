@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_4_inheritance", "HW_C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_5_peregruzka", "HW_CS_5_peregruzka\HW_CS_5_peregruzka.csproj", "{C8426B7A-7FE3-46CE-95D1-60E3F9782982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_6_interfaces", "HW_CS_6_interfaces\HW_CS_6_interfaces.csproj", "{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,18 @@ Global
 		{C8426B7A-7FE3-46CE-95D1-60E3F9782982}.Release|x64.Build.0 = Release|Any CPU
 		{C8426B7A-7FE3-46CE-95D1-60E3F9782982}.Release|x86.ActiveCfg = Release|Any CPU
 		{C8426B7A-7FE3-46CE-95D1-60E3F9782982}.Release|x86.Build.0 = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|x64.Build.0 = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Debug|x86.Build.0 = Debug|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x64.ActiveCfg = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x64.Build.0 = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
