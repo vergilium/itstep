@@ -29,9 +29,12 @@ namespace HW_CS_6_interfaces {
 
 
 			Task2.IDrawable[] objs = {
-				new Task2.Triangle(10,10,0,0,ConsoleColor.Red)
+				new Task2.Triangle(9,10,10,ConsoleColor.Red),
+				new Task2.Square(9, 5,5,ConsoleColor.Green)
 			};
-			objs[0].Draw();
+			foreach(var sh in objs) {
+				sh.Draw();
+			}
 			Console.ReadKey();
 		}
 	}

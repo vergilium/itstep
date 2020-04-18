@@ -13,7 +13,7 @@ namespace HW_CS_6_interfaces {
 		abstract class Shape {
 			public string m_sName { get; private set; }
 			public ConsoleColor m_cColor { get; set; }
-			private Point m_pStartPosition { get; set; }
+			public Point m_pStartPosition { get; private set; }
 			public Shape(string name, ConsoleColor color, Point stPos) {
 				m_sName = name;
 				m_cColor = color;
@@ -36,7 +36,6 @@ namespace HW_CS_6_interfaces {
 		class Triangle : Shape, IDrawable {
 
 			private int m_iWidth;
-			private int m_iHigth;
 			private int Width{ 
 				get => m_iWidth; 
 				set {
@@ -44,31 +43,76 @@ namespace HW_CS_6_interfaces {
 					else throw new System.ArgumentException("Min value is '3'");
 				}
 			}
-			private int Higth{ 
-				get=>m_iHigth;
-				set {
-					if(value >= 2) m_iHigth = value;
-					else throw new System.ArgumentException("Min value is '2'");
-				}
-			}
-			public Triangle(int w, int h, int x = 0, int y = 0, ConsoleColor color = ConsoleColor.White) : base("Triangle", color, x, y) {
+			public Triangle(int w, int x = 0, int y = 0, ConsoleColor color = ConsoleColor.White) : base("Triangle", color, x, y) {
 				Width = w;
-				m_iHigth = h;
 			}
 
-			public void Draw(char с) {
-
-				for(int i = 0; i < m_iHigth; i++) {
-					for(int j = i; j < m_iWidth/2-1; j++) {
-						Console.Write(" ");
-					}
-					for(int j = m_iWidth / 2-i; j < m_iWidth; j++) {
-						Console.Write("*");
+			public void Draw(char c) {
+				Console.ForegroundColor = base.m_cColor;
+				for(int i = 0; i <((m_iWidth % 2==0)?(m_iWidth / 2):(m_iWidth / 2)+1); i++) {
+					Console.SetCursorPosition(base.m_pStartPosition.X+(m_iWidth / 2)-i, base.m_pStartPosition.Y+i);
+					for(int j = 0; j <= i*2+ ((m_iWidth % 2 == 0) ? 1 : 0); j++) {
+						Console.Write(c);
 					}
 					Console.WriteLine();
 				}
 			}
+		
 		}
+
+		class Square : Shape, IDrawable {
+			private int m_iWidth;
+			private int Width {
+				get => m_iWidth;
+				set {
+					if(value >= 3) m_iWidth = value;
+					else throw new System.ArgumentException("Min value is '3'");
+				}
+			}
+
+			public Square(int w, int x, int y, ConsoleColor color = ConsoleColor.White): base("Square", color, x, y) {
+				Width = w;
+			}
+
+			public void Draw(char c) {
+				Console.ForegroundColor = base.m_cColor;
+				for(int i = 0; i < ((m_iWidth % 2 == 0) ? (m_iWidth / 2) : (m_iWidth / 2) + 1); i++) {
+					Console.SetCursorPosition(base.m_pStartPosition.X, base.m_pStartPosition.Y + i);
+					for(int j = 0; j <= m_iWidth; ++j) {
+						Console.Write(c);
+					}
+					Console.WriteLine();
+				}
+			}
+
+		}
+
+		class Rectangle : Shape, IDrawable {
+			private int m_iWidth;
+			private int Width {
+				get => m_iWidth;
+				set {
+					if(value >= 3) m_iWidth = value;
+					else throw new System.ArgumentException("Min value is '3'");
+				}
+			}
+
+			public Square(int w, int x, int y, ConsoleColor color = ConsoleColor.White) : base("Square", color, x, y) {
+				Width = w;
+			}
+
+			public void Draw(char c) {
+				Console.ForegroundColor = base.m_cColor;
+				for(int i = 0; i < ((m_iWidth % 2 == 0) ? (m_iWidth / 2) : (m_iWidth / 2) + 1); i++) {
+					Console.SetCursorPosition(base.m_pStartPosition.X, base.m_pStartPosition.Y + i);
+					for(int j = 0; j <= m_iWidth; ++j) {
+						Console.Write(c);
+					}
+					Console.WriteLine();
+				}
+			}
+
+		}b  
 
 	}
 	
