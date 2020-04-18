@@ -89,31 +89,105 @@ namespace HW_CS_6_interfaces {
 
 		class Rectangle : Shape, IDrawable {
 			private int m_iWidth;
+			private int m_iHeight;
 			private int Width {
 				get => m_iWidth;
 				set {
-					if(value >= 3) m_iWidth = value;
-					else throw new System.ArgumentException("Min value is '3'");
+					if(value >= 2) m_iWidth = value;
+					else throw new System.ArgumentException("Min value is '2'");
+				}
+			}
+			private int Height
+			{
+				get => m_iHeight;
+				set {
+					if(value >= 2) m_iHeight = value;
+					else throw new System.ArgumentException("Min value is '2'");
 				}
 			}
 
-			public Square(int w, int x, int y, ConsoleColor color = ConsoleColor.White) : base("Square", color, x, y) {
+			public Rectangle(int w, int h, int x, int y, ConsoleColor color = ConsoleColor.White) : base("Square", color, x, y) {
 				Width = w;
+				Height = h;
 			}
 
 			public void Draw(char c) {
 				Console.ForegroundColor = base.m_cColor;
-				for(int i = 0; i < ((m_iWidth % 2 == 0) ? (m_iWidth / 2) : (m_iWidth / 2) + 1); i++) {
+				for(int i = 0; i < m_iWidth; i++) {
 					Console.SetCursorPosition(base.m_pStartPosition.X, base.m_pStartPosition.Y + i);
-					for(int j = 0; j <= m_iWidth; ++j) {
+					for(int j = 0; j <= m_iHeight; ++j) {
 						Console.Write(c);
 					}
 					Console.WriteLine();
 				}
 			}
 
-		}b  
+		}
+		class Rhombus: Shape, IDrawable
+		{
+			private int m_iWidth;
+			private int Width
+			{
+				get => m_iWidth;
+				set
+				{
+					if (value >= 3) m_iWidth = value;
+					else throw new System.ArgumentException("Min value is '3'");
+				}
+			}
+			public Rhombus(int w, int x = 0, int y = 0, ConsoleColor color = ConsoleColor.White) : base("Triangle", color, x, y)
+			{
+				Width = w;
+			}
 
+			public void Draw(char c)
+			{
+				Console.ForegroundColor = base.m_cColor;
+				for (int i = 0; i < ((m_iWidth % 2 == 0) ? (m_iWidth / 2) : (m_iWidth / 2) + 1); i++)
+				{
+					Console.SetCursorPosition(base.m_pStartPosition.X + m_iWidth  - (i*2), base.m_pStartPosition.Y + i);
+					for (int j = 0; j <= m_iWidth; j++)
+					{
+						Console.Write(c);
+					}
+					Console.WriteLine();
+				}
+				
+			}
+		}
+		class Trapezoid : Shape, IDrawable
+		{
+
+			private int m_iWidth;
+			private int Width
+			{
+				get => m_iWidth;
+				set
+				{
+					if (value >= 4) m_iWidth = value;
+					else throw new System.ArgumentException("Min value is '4'");
+				}
+			}
+			public Trapezoid(int w, int x = 0, int y = 0, ConsoleColor color = ConsoleColor.White) : base("Triangle", color, x, y)
+			{
+				Width = w;
+			}
+
+			public void Draw(char c)
+			{
+				Console.ForegroundColor = base.m_cColor;
+				for (int i = 1; i < ((m_iWidth % 2 == 0) ? (m_iWidth / 2) : (m_iWidth / 2) + 1); i++)
+				{
+					Console.SetCursorPosition(base.m_pStartPosition.X + (m_iWidth / 2) - i, base.m_pStartPosition.Y + i);
+					for (int j = 0; j <= i * 2 + ((m_iWidth % 2 == 0) ? 1 : 0); j++)
+					{
+						Console.Write(c);
+					}
+					Console.WriteLine();
+				}
+			}
+
+		}
 	}
 	
 }
