@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_5_peregruzka", "HW_CS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_6_interfaces", "HW_CS_6_interfaces\HW_CS_6_interfaces.csproj", "{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_8_Collections", "HW_CS_8_Collections\HW_CS_8_Collections.csproj", "{92C006FE-A9CC-4874-A30F-59252E37897F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,18 @@ Global
 		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x64.Build.0 = Release|Any CPU
 		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x86.ActiveCfg = Release|Any CPU
 		{7D7B7ACF-6BB9-4CB9-93CD-249D19BC4DF1}.Release|x86.Build.0 = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|x64.Build.0 = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Debug|x86.Build.0 = Debug|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|x64.ActiveCfg = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|x64.Build.0 = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|x86.ActiveCfg = Release|Any CPU
+		{92C006FE-A9CC-4874-A30F-59252E37897F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
