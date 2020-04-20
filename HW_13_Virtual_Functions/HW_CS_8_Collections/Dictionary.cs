@@ -4,33 +4,61 @@ using System.Text;
 
 namespace HW_CS_8_Collections
 {
+
+	enum language { RU_EN, EN_RU };
 	class Dictionary{
 		private Dictionary<string, string> m_RUEN;
-		private Dictionary<string, string> m_ENRU;
-		public int language { 
-			get => language;
-			set {
-				if (language < 0 && language > 1)
-					throw new System.ArgumentException("Language must be in the range between 0 and 1");
-				else language = value;
-			} 
-		}
+		public language lang { get; set; }
+		//	get => lang;
+		//	set {
+		//		//if (lang < language.RU_EN || lang > language.EN_RU)
+		//		//	throw new System.ArgumentException("Language must be in the range between 0 and 1");
+		//		//else 
+		//			lang = value;
+		//	} 
+		//}
 
-		public Dictionary(int lang = 0) {
-			m_RUEN = new Dictionary<string, string>();
-			m_ENRU = new Dictionary<string, string>();
-			language = lang;
+		public Dictionary(language lang = language.RU_EN) {
+			m_RUEN = new Dictionary<string, string>{
+				{ "Дания","Denmark" },
+				{ "Англия","England" },
+				{ "Эстония","Estonia" },
+				{ "Финляндия","Finland" },
+				{ "Исландия","Iceland" },
+				{ "Ирландия","Ireland" },
+				{ "Латвия","Latvia" },
+				{ "Норвегия","Norway" },
+				{ "Шотландия","Scotland" },
+				{ "Швеция","Sweden" },
+				{ "Украина","Ukraine" }
+			};
+			this.lang = lang;
 		}
 
 		public void AddWord(string key, string value) {
-			m_lpDict.Add(key, value);
+			if (lang == language.RU_EN)
+				m_RUEN.Add(key, value);
+			else
+				m_RUEN.Add(value, key);
 		}
-		public string GetValue(string key) {
-			return m_lpDict.GetValueOrDefault(key);
+		private string GetValue(string key) {
+			return m_RUEN.GetValueOrDefault(key);
 		}
 
-		public string GetKey(string value) {
-			return m_lpDict.
+		private string GetKey(string value) {
+			foreach (var v in m_RUEN) {
+				if (v.Value.Equals(value))
+					return v.Key;
+			}
+			return null;
+		}
+
+		public string TranslateWord(string word) {
+			if(lang == language.RU_EN) {
+				return this?.GetValue(word);
+			} else {
+				return this?.GetKey(word);
+			}
 		}
 	}
 }
