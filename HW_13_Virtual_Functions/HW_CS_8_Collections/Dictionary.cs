@@ -9,14 +9,6 @@ namespace HW_CS_8_Collections
 	class Dictionary{
 		private Dictionary<string, string> m_RUEN;
 		public language lang { get; set; }
-		//	get => lang;
-		//	set {
-		//		//if (lang < language.RU_EN || lang > language.EN_RU)
-		//		//	throw new System.ArgumentException("Language must be in the range between 0 and 1");
-		//		//else 
-		//			lang = value;
-		//	} 
-		//}
 
 		public Dictionary(language lang = language.RU_EN) {
 			m_RUEN = new Dictionary<string, string>{
