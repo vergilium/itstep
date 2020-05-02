@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HW_CS_9_Tamagochi {
 	static class GRFX {
@@ -114,10 +110,28 @@ namespace HW_CS_9_Tamagochi {
                ░  ░       ░         ░  ░      ░     ░ ░  ░ ░       ░  ░  ░ ░  
                                                          ░                    
 ");
-                                                             
-
+			Console.ReadKey(false);
 		}
 
+		public static void ShowDead() {
+			Clear();
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.Write(@"
 
+
+                             TAMAGOCHI IS
+                   		
+                   ▓█████▄ ▓█████ ▄▄▄      ▓█████▄ 
+                   ▒██▀ ██▌▓█   ▀▒████▄    ▒██▀ ██▌
+                   ░██   █▌▒███  ▒██  ▀█▄  ░██   █▌
+                   ░▓█▄   ▌▒▓█  ▄░██▄▄▄▄██ ░▓█▄   ▌
+                   ░▒████▓ ░▒████▒▓█   ▓██▒░▒████▓ 
+                    ▒▒▓  ▒ ░░ ▒░ ░▒▒   ▓▒█░ ▒▒▓  ▒ 
+                    ░ ▒  ▒  ░ ░  ░ ▒   ▒▒ ░ ░ ▒  ▒ 
+                    ░ ░  ░    ░    ░   ▒    ░ ░  ░ 
+                      ░       ░  ░     ░  ░   ░    
+                    ░                       ░      
+");
+		}
 	}
 }

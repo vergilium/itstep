@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SmartMenu { 
+namespace SmartMenu {
     delegate void MenuDelegate(object obj);
+    delegate void BGShowDelegate();
     class MenuItem : IComparable<MenuItem> {
         public string MenuString { get; }
         public event MenuDelegate action;
@@ -44,10 +42,11 @@ namespace SmartMenu {
                 item.action += d;
             }
         }
-        public void Show() {
+        public void Show(BGShowDelegate bg = null) {
             int choose = 0;
 
             while (true) {
+                bg?.Invoke();
                 Console.BackgroundColor = m_bgColor;
                 Console.ForegroundColor = m_fgColor;
                 Console.SetCursorPosition(m_wPos, m_hPos);
