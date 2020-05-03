@@ -8,12 +8,10 @@ namespace HW_CS_5_peregruzka
 {
     class Program{
         static void Main(string[] args){
-            //AB? cfnt1 = new AB(),
-            //    cfnt2 = new AB();
-            //Console.WriteLine("Enter values 'A' and 'B' via space or ';'. And press 'Enter'");
-            //cfnt1 = AB.Parse(Console.ReadLine());
-            //Console.WriteLine("Enter values 'A' and 'B' via space or ';'. And press 'Enter'");
-            //cfnt2 = AB.Parse(Console.ReadLine());
+
+            LinearEquation Eq1 = new LinearEquation(10, 12, 5);
+            LinearEquation Eq2 = new LinearEquation(5, 8, 9);
+            LinearEquation.Calculate(Eq1, Eq2);
 
             Complex z = new Complex(1, 1);
             Complex z1;
