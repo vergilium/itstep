@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_11_Serialization", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_12_inheritance_code(dll library)", "HW_CS_12_inheritance_code(dll library)\HW_CS_12_inheritance_code(dll library).csproj", "{5C06B385-CFF3-49EF-9A24-EBD50DD3DE99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_WinAPI_Forms", "Example_WinAPI_Forms\Example_WinAPI_Forms.csproj", "{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +179,18 @@ Global
 		{5C06B385-CFF3-49EF-9A24-EBD50DD3DE99}.Release|x64.Build.0 = Release|Any CPU
 		{5C06B385-CFF3-49EF-9A24-EBD50DD3DE99}.Release|x86.ActiveCfg = Release|Any CPU
 		{5C06B385-CFF3-49EF-9A24-EBD50DD3DE99}.Release|x86.Build.0 = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|x64.Build.0 = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Debug|x86.Build.0 = Debug|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|x64.Build.0 = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{AC093FC0-2924-4DAA-AEC4-3B5C79FF57BF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
