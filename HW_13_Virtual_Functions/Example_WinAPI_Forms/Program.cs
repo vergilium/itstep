@@ -20,7 +20,6 @@ namespace Example_WinAPI_Forms {
 
             IntPtr hWnd = CreateWindowEx(
                 0,
-                //"MyFirstWinApiWnd",
                 atom,
                 "Моё окошечко",
                 WS_OVERLAPPEDWINDOW,  //WS_SYSMENU | WS_BORDER | WS_CAPTION | WS_MINIMIZEBOX ,
