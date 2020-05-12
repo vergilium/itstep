@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE academy SYSTEM "./academy.dtd"[]>
+<academy xmlns="./academy.xsd">
+  <students>
+    <student firstName="Vasa" lastName="Pupkin">
+      <marks>
+        <mark subject="CS" value="12" />
+        <mark subject="CPP" value="12" />
+        <mark subject="MSP" value="12" />
+        <mark subject="SQL" value="10" />
+      </marks>
+    </student>
+    <student firstName="Oleg" lastName="Petrov">
+      <marks>
+        <mark subject="CS" value="12" />
+        <mark subject="CPP" value="12" />
+        <mark subject="MSP" value="12" />
+        <mark subject="SQL" value="10" />
+      </marks>
+    </student>
+    <student firstName="Федя" lastName="Сидоров">
+      <marks>
+        <mark subject="CS" value="1" />
+        <mark subject="CPP" value="12" />
+        <mark subject="MSP" value="12" />
+        <mark subject="SQL" value="10" />
+      </marks>
+    </student>
+  </students>
+  <subjects>
+    <subject name="CS" />
+    <subject name="CPP" />
+    <subject name="SQL" />
+    <subject name="MSP" />
+  </subjects>
+</academy>

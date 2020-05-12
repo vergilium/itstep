@@ -1,0 +1,28 @@
+﻿<!ELEMENT academy (students, subjects)>
+
+<!ELEMENT students (student*)>
+
+<!ELEMENT student (marks)>
+
+<!ATTLIST student
+  firstName CDATA #REQUIRED
+  lastName CDATA #REQUIRED
+  middleName CDATA #IMPLIED
+  age CDATA #IMPLIED
+>
+
+<!ELEMENT subjects (subject*)>
+<!ELEMENT subject EMPTY>
+
+<!ATTLIST subject
+  name ID #REQUIRED
+>
+
+<!ELEMENT marks (mark*)>
+
+<!ELEMENT mark EMPTY>
+
+<!ATTLIST mark
+  subject IDREF #REQUIRED
+  value (1|2|3|4|5|6|7|8|9|10|11|12) #REQUIRED
+>
