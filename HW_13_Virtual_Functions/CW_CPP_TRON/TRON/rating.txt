@@ -1,0 +1,6 @@
+Alex:65
+Alex:177
+Dima:49
+John:31
+Vasya:99
+alenka:33
