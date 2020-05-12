@@ -1,0 +1,8 @@
+LIBRARY "MyLibraryCPP"
+
+EXPORTS
+	Test		@1
+	demo_plus	@2
+	demo_struct	@3
+	
+
