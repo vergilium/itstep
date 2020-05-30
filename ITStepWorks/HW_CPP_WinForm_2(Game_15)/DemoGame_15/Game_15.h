@@ -1,6 +1,7 @@
 #pragma once
 #include <random>
 #include <algorithm>
+#include <ctime>
 
 struct Coord {
     int x;

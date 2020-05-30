@@ -3,6 +3,7 @@
 
 Game_15::Game_15()
 {
+	srand(time(0));
 	for (int i = 0, n = 1; i < 4; ++i)
 		for (int j = 0; j < 4; ++j, ++n)
 			gameField[j][i] = n;
@@ -14,9 +15,16 @@ Game_15::Game_15()
 
 void Game_15::initGame()
 {
-	std::random_device rd;
-	std::mt19937 g(rd());
-	std::shuffle(gameField, gameField+(sizeof(gameField)/sizeof(gameField[0][0])),g);
+	int move[4] = { -1,-1,-1,-1 };
+
+	for (int i = 0; i < 10; ++i)
+	{
+		if ((zeroX - 1) >= 0 && zeroX - (zeroX - 1) == 1) { move[0] = getValue(zeroX - 1, zeroY); }
+		if ((zeroX + 1) < 4 && (zeroX + 1) - zeroX == 1) { move[1] = getValue(zeroX + 1, zeroY); }
+		if ((zeroY - 1) >= 0 && zeroY - (zeroY - 1) == 1) { move[2] = getValue(zeroX, zeroY - 1); }
+		if ((zeroY + 1) < 4 && (zeroY + 1) - zeroY == 1) { move[3] = getValue(zeroX, zeroY + 1); }
+		while (go(move[rand()%4]));
+	}
 	//Этот метод - задание на дом
 	//Метод перемешивает данные, 
 	//При этом игра должна собираться
@@ -56,5 +64,9 @@ bool Game_15::go(int value)
 bool Game_15::isWin()
 {
 	//Это тоже домашнее задание
-	return false;
+	for (int i = 0, n = 1; i < 4; ++i)
+		for (int j = 0; j < 4; ++j, ++n)
+			if(gameField[j][i] != (n<16?n:0))
+			return false;
+	return true;
 }
