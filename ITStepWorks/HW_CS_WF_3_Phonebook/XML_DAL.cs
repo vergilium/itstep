@@ -28,7 +28,7 @@ namespace HW_CS_WF_3_Phonebook {
             return true;
         }
 
-        public bool OpenFile(out object obj) {
+        public bool LoadFile(out object obj) {
             obj = new object();
             return true;
         }

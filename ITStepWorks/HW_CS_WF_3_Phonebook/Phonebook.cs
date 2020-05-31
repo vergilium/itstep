@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 
 namespace HW_CS_10_Serialization {
     internal struct BOOKITEM {
-   //     public HashSet<string> iKey { get; set; }
         public string sFName { get;  set; }
         public string sLName { get;  set; }
         public string sSName { get;  set; }
