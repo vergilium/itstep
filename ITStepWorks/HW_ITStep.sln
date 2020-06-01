@@ -59,7 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example_CS_CPP_dll", "Examp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{165D2873-E08F-40BE-B2D5-747E973625AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinApi_WinForms", "WinApi_WinForms", "{16F2DE70-BBD8-4293-B2E3-B20B85D1273B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW_WinApi_WinForms", "HW_WinApi_WinForms", "{16F2DE70-BBD8-4293-B2E3-B20B85D1273B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HW_CPP_WF_1_intro", "HW_CPP_WF_1_intro\HW_CPP_WF_1_intro.vcxproj", "{38C425DE-10D9-4EC5-A4F8-DE9C16292903}"
 EndProject
@@ -71,7 +71,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_CS_WF_3_Phonebook", "HW_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_CS_WF_DP_AbstractFactory_DrawShapes", "Examle_CS_WF_DP_AbstractFactory(DrawShapes)\WindowsFormsApp_Pattern\Example_CS_WF_DP_AbstractFactory_DrawShapes.csproj", "{F31F92A0-AFDD-4795-85D9-F91CFA2B2CB4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FabricMethod", "DesignPatterns\FabricMethod\FabricMethod.vcxproj", "{E9C4EE49-C030-40FF-91DA-D7253B162019}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_FabricMethod", "DesignPatterns\FabricMethod\FabricMethod.vcxproj", "{E9C4EE49-C030-40FF-91DA-D7253B162019}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Prototype", "DesignPatterns\Prototype\Prototype.vcxproj", "{6184FE9C-FA76-4DBB-9E67-B6573CB16B2A}"
 EndProject
@@ -79,7 +79,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Singleton", "DesignPatterns
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Builder", "DesignPatterns\Builder\Builder.vcxproj", "{EE2FAC29-0F3E-4271-893B-0B53023165DB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AbstractFactory", "DesignPatterns\AbstractFactory\AbstractFactory.vcxproj", "{3E7207DB-9EE1-4EFF-AC10-E205E58C247D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_AbstractFactory", "DesignPatterns\AbstractFactory\AbstractFactory.vcxproj", "{3E7207DB-9EE1-4EFF-AC10-E205E58C247D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Proxy", "DesignPatterns\Proxy\Proxy.vcxproj", "{E29D8C6F-9269-4934-B4CD-B634FBCE4068}"
 EndProject
@@ -87,13 +87,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Facade", "DesignPatterns\Fa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flyweight", "DesignPatterns\Flyweight\Flyweight.vcxproj", "{00915905-9095-4334-A8E6-3BB8A552C8A2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decorator", "DesignPatterns\Decorator\Decorator.vcxproj", "{05E57D35-F9C5-47A2-99D6-9F8E0A3D2E45}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_Decorator", "DesignPatterns\Decorator\Decorator.vcxproj", "{05E57D35-F9C5-47A2-99D6-9F8E0A3D2E45}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adapter", "DesignPatterns\Adapter\Adapter.vcxproj", "{3E71FCA7-4B86-46B0-917C-D9EDFD3F7FD7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_Adapter", "DesignPatterns\Adapter\Adapter.vcxproj", "{3E71FCA7-4B86-46B0-917C-D9EDFD3F7FD7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bridge", "DesignPatterns\Bridge\Bridge.vcxproj", "{45F6B7DD-E48C-4B3B-8089-A1FEDA7160D0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_Bridge", "DesignPatterns\Bridge\Bridge.vcxproj", "{45F6B7DD-E48C-4B3B-8089-A1FEDA7160D0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Composite", "DesignPatterns\Composite\Composite.vcxproj", "{88687F9A-2385-4C0B-966A-918DC6A2EFD1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_Composite", "DesignPatterns\Composite\Composite.vcxproj", "{88687F9A-2385-4C0B-966A-918DC6A2EFD1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TemplateMethod", "DesignPatterns\TemplateMethod\TemplateMethod.vcxproj", "{D49D5519-DF99-4D1E-AD6C-DD78473573BA}"
 EndProject
