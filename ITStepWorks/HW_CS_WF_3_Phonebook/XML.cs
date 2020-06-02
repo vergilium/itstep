@@ -8,12 +8,12 @@ using System.Windows.Forms;
 using System.Xml;
 
 namespace HW_CS_WF_3_Phonebook {
-    class XML_DAL {
+	class XML {
         XmlDocument xmlDoc;
-        public XML_DAL() :
+        public XML() :
             this("phonebook.xml") { }
 
-        public XML_DAL(string path) {
+        public XML(string path) {
             try {
                 xmlDoc = new XmlDocument();
                 xmlDoc.Load(path);
@@ -32,7 +32,6 @@ namespace HW_CS_WF_3_Phonebook {
             obj = new object();
             return true;
         }
-        
 
     }
 }
