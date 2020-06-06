@@ -15,7 +15,6 @@ namespace HW_CS_WF_3_Phonebook
         static void Main()
         {
 
-            Phonebook phBook = new Phonebook(); 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace HW_CS_WF_3_Phonebook {
-	class XML {
+namespace Data_Access_Layer {
+	class XML : IDataLayer, IDisposable {
         XmlDocument xmlDoc;
         public XML() :
             this("phonebook.xml") { }
@@ -18,20 +18,22 @@ namespace HW_CS_WF_3_Phonebook {
                 xmlDoc = new XmlDocument();
                 xmlDoc.Load(path);
             } catch (FileNotFoundException) {
-                MessageBox.Show("File is not found!");
+                MessageBox.Show("File is not load!");
             } finally {
 
             }
         }
 
-        public bool SaveFile(ref object odj) {
-            return true;
+        public void Dispose() {
+            xmlDoc = null;
         }
 
-        public bool LoadFile(out object obj) {
-            obj = new object();
-            return true;
+        public bool OpenFile(string path, out object data) {
+            throw new NotImplementedException();
         }
 
+        public bool SaveFile(string path, ref object data) {
+            throw new NotImplementedException();
+        }
     }
 }

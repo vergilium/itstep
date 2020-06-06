@@ -12,10 +12,14 @@ namespace HW_CS_WF_3_Phonebook
 {
     public partial class MainForm : Form
     {
-        Phonebook phBook = new Phonebook();
+        Data_Access_Layer.DAL dataLayer = new Data_Access_Layer.DAL();
+        Phonebook_Class.Phonebook phBook;
+
         public MainForm()
         {
             InitializeComponent();
+            openFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
+            openFileDialog.FilterIndex = Data_Access_Layer.DAL.cFileTypesCount;
         }
 
         private void textBoxs_New_Enable(bool en) {
@@ -42,6 +46,25 @@ namespace HW_CS_WF_3_Phonebook
 
         private void MainList_Enter(object sender, EventArgs e) {
             MainList.Lines = phBook.GetLates();
+        }
+
+        private void Open_ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            else {
+                dataLayer.LoadFile(openFileDialog.FileName, out phBook);
+            }
+        }
+
+        private void SaveAs_ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+            else {
+                dataLayer.SaveFile(saveFileDialog.FileName, ref phBook);
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e) {
+           
         }
     }
 }

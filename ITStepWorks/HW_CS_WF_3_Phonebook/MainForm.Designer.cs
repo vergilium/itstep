@@ -45,6 +45,8 @@
 			this.text_Phone = new System.Windows.Forms.TextBox();
 			this.text_Descr = new System.Windows.Forms.TextBox();
 			this.phonebookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.MainMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.phonebookBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -72,19 +74,21 @@
 			// Open_ToolStripMenuItem
 			// 
 			this.Open_ToolStripMenuItem.Name = "Open_ToolStripMenuItem";
-			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.Open_ToolStripMenuItem.Text = "Открыть";
+			this.Open_ToolStripMenuItem.Click += new System.EventHandler(this.Open_ToolStripMenuItem_Click);
 			// 
 			// SaveAs_ToolStripMenuItem
 			// 
 			this.SaveAs_ToolStripMenuItem.Name = "SaveAs_ToolStripMenuItem";
-			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.SaveAs_ToolStripMenuItem.Text = "Сохранить как";
+			this.SaveAs_ToolStripMenuItem.Click += new System.EventHandler(this.SaveAs_ToolStripMenuItem_Click);
 			// 
 			// Exit_ToolStripMenuItem
 			// 
 			this.Exit_ToolStripMenuItem.Name = "Exit_ToolStripMenuItem";
-			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.Exit_ToolStripMenuItem.Text = "Выход";
 			// 
 			// btn_NewItem
@@ -172,7 +176,11 @@
 			// 
 			// phonebookBindingSource
 			// 
-			this.phonebookBindingSource.DataSource = typeof(HW_CS_WF_3_Phonebook.Phonebook);
+			this.phonebookBindingSource.DataSource = typeof(Phonebook_Class.Phonebook);
+			// 
+			// openFileDialog
+			// 
+			this.openFileDialog.FileName = "Phonebook";
 			// 
 			// MainForm
 			// 
@@ -196,6 +204,7 @@
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "PhoneBook";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.MainMenu.ResumeLayout(false);
 			this.MainMenu.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.phonebookBindingSource)).EndInit();
@@ -221,6 +230,8 @@
 		private System.Windows.Forms.TextBox text_SName;
 		private System.Windows.Forms.TextBox text_Phone;
 		private System.Windows.Forms.TextBox text_Descr;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
 	}
 }
 
