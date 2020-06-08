@@ -38,15 +38,15 @@
 			this.btn_NewItem = new System.Windows.Forms.Button();
 			this.btn_AddPhone = new System.Windows.Forms.Button();
 			this.btn_EditItem = new System.Windows.Forms.Button();
-			this.MainList = new System.Windows.Forms.TextBox();
 			this.text_Name = new System.Windows.Forms.TextBox();
 			this.text_LName = new System.Windows.Forms.TextBox();
 			this.text_SName = new System.Windows.Forms.TextBox();
 			this.text_Phone = new System.Windows.Forms.TextBox();
 			this.text_Descr = new System.Windows.Forms.TextBox();
-			this.phonebookBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+			this.mainList = new System.Windows.Forms.ListBox();
+			this.phonebookBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.MainMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.phonebookBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -74,21 +74,21 @@
 			// Open_ToolStripMenuItem
 			// 
 			this.Open_ToolStripMenuItem.Name = "Open_ToolStripMenuItem";
-			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.Open_ToolStripMenuItem.Text = "Открыть";
 			this.Open_ToolStripMenuItem.Click += new System.EventHandler(this.Open_ToolStripMenuItem_Click);
 			// 
 			// SaveAs_ToolStripMenuItem
 			// 
 			this.SaveAs_ToolStripMenuItem.Name = "SaveAs_ToolStripMenuItem";
-			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.SaveAs_ToolStripMenuItem.Text = "Сохранить как";
 			this.SaveAs_ToolStripMenuItem.Click += new System.EventHandler(this.SaveAs_ToolStripMenuItem_Click);
 			// 
 			// Exit_ToolStripMenuItem
 			// 
 			this.Exit_ToolStripMenuItem.Name = "Exit_ToolStripMenuItem";
-			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.Exit_ToolStripMenuItem.Text = "Выход";
 			// 
 			// btn_NewItem
@@ -119,15 +119,6 @@
 			this.btn_EditItem.TabIndex = 3;
 			this.btn_EditItem.Text = "Изменить";
 			this.btn_EditItem.UseVisualStyleBackColor = true;
-			// 
-			// MainList
-			// 
-			this.MainList.Location = new System.Drawing.Point(12, 83);
-			this.MainList.Multiline = true;
-			this.MainList.Name = "MainList";
-			this.MainList.Size = new System.Drawing.Size(760, 306);
-			this.MainList.TabIndex = 4;
-			this.MainList.Enter += new System.EventHandler(this.MainList_Enter);
 			// 
 			// text_Name
 			// 
@@ -174,25 +165,33 @@
 			this.text_Descr.TabIndex = 9;
 			this.text_Descr.Text = "Описание";
 			// 
-			// phonebookBindingSource
-			// 
-			this.phonebookBindingSource.DataSource = typeof(Phonebook_Class.Phonebook);
-			// 
 			// openFileDialog
 			// 
 			this.openFileDialog.FileName = "Phonebook";
+			// 
+			// mainList
+			// 
+			this.mainList.FormattingEnabled = true;
+			this.mainList.Location = new System.Drawing.Point(12, 82);
+			this.mainList.Name = "mainList";
+			this.mainList.Size = new System.Drawing.Size(760, 303);
+			this.mainList.TabIndex = 10;
+			// 
+			// phonebookBindingSource
+			// 
+			this.phonebookBindingSource.DataSource = typeof(Phonebook_Class.Phonebook);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 401);
+			this.Controls.Add(this.mainList);
 			this.Controls.Add(this.text_Descr);
 			this.Controls.Add(this.text_Phone);
 			this.Controls.Add(this.text_SName);
 			this.Controls.Add(this.text_LName);
 			this.Controls.Add(this.text_Name);
-			this.Controls.Add(this.MainList);
 			this.Controls.Add(this.btn_EditItem);
 			this.Controls.Add(this.btn_AddPhone);
 			this.Controls.Add(this.btn_NewItem);
@@ -224,7 +223,6 @@
 		private System.Windows.Forms.Button btn_AddPhone;
 		private System.Windows.Forms.Button btn_EditItem;
 		private System.Windows.Forms.BindingSource phonebookBindingSource;
-		private System.Windows.Forms.TextBox MainList;
 		private System.Windows.Forms.TextBox text_Name;
 		private System.Windows.Forms.TextBox text_LName;
 		private System.Windows.Forms.TextBox text_SName;
@@ -232,6 +230,7 @@
 		private System.Windows.Forms.TextBox text_Descr;
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		private System.Windows.Forms.SaveFileDialog saveFileDialog;
+		private System.Windows.Forms.ListBox mainList;
 	}
 }
 

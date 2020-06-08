@@ -83,7 +83,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_AbstractFact
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Proxy", "DesignPatterns\Proxy\Proxy.vcxproj", "{E29D8C6F-9269-4934-B4CD-B634FBCE4068}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Facade", "DesignPatterns\Facade\Facade.vcxproj", "{426A9464-CB87-4C32-992D-755BB5825CF5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_CPP_DP_Facade", "DesignPatterns\Facade\Facade.vcxproj", "{426A9464-CB87-4C32-992D-755BB5825CF5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flyweight", "DesignPatterns\Flyweight\Flyweight.vcxproj", "{00915905-9095-4334-A8E6-3BB8A552C8A2}"
 EndProject

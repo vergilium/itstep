@@ -18,6 +18,7 @@ namespace HW_CS_WF_3_Phonebook
         public MainForm()
         {
             InitializeComponent();
+            btn_NewItem.Tag = 0;
             openFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
             openFileDialog.FilterIndex = Data_Access_Layer.DAL.cFileTypesCount;
         }
@@ -44,10 +45,6 @@ namespace HW_CS_WF_3_Phonebook
            
         }
 
-        private void MainList_Enter(object sender, EventArgs e) {
-            MainList.Lines = phBook.GetLates();
-        }
-
         private void Open_ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -64,7 +61,8 @@ namespace HW_CS_WF_3_Phonebook
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-           
+            phBook = new Phonebook_Class.Phonebook();
+            mainList.DataSource = phBook.GetData();
         }
     }
 }
