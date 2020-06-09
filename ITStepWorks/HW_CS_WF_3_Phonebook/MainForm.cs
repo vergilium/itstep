@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phonebook_Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,8 @@ namespace HW_CS_WF_3_Phonebook
             btn_NewItem.Tag = 0;
             openFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
             openFileDialog.FilterIndex = Data_Access_Layer.DAL.cFileTypesCount;
+            saveFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
+            saveFileDialog.FilterIndex = Data_Access_Layer.DAL.cFileTypesCount;
         }
 
         private void textBoxs_New_Enable(bool en) {
@@ -49,20 +52,22 @@ namespace HW_CS_WF_3_Phonebook
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             else {
-                dataLayer.LoadFile(openFileDialog.FileName, out phBook);
+               dataLayer.LoadFile(openFileDialog.FileName, out object obj);
+                phBook = obj as Phonebook;
             }
         }
 
         private void SaveAs_ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
             else {
-                dataLayer.SaveFile(saveFileDialog.FileName, ref phBook);
+                object obj = phBook;
+                dataLayer.SaveFile(saveFileDialog.FileName, ref obj);
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
             phBook = new Phonebook_Class.Phonebook();
-            mainList.DataSource = phBook.GetData();
+            mainList.DataSource = phBook.lBookItem;
         }
     }
 }

@@ -1,39 +1,48 @@
-﻿using System;
+﻿using Phonebook_Class;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
+using System.Xml.Serialization;
 
 namespace Data_Access_Layer {
-	class XML : IDataLayer, IDisposable {
-        XmlDocument xmlDoc;
+	class XML<T> : IDataLayer, IDisposable{
+
+        private string sPath;
+        XmlSerializer xmlFormat;
         public XML() :
             this("phonebook.xml") { }
 
         public XML(string path) {
-            try {
-                xmlDoc = new XmlDocument();
-                xmlDoc.Load(path);
-            } catch (FileNotFoundException) {
-                MessageBox.Show("File is not load!");
-            } finally {
-
-            }
+            xmlFormat = new XmlSerializer(typeof(T));
+            sPath = path;
         }
 
         public void Dispose() {
-            xmlDoc = null;
+            xmlFormat = null;
         }
 
-        public bool OpenFile(string path, out object data) {
-            throw new NotImplementedException();
+        public bool OpenFile(out object data) {
+            data = default(T);
+            try {
+                using (Stream fStream = File.OpenRead(sPath)) {
+                data = (T)xmlFormat.
+                Deserialize(fStream);
+            }
+                return true;
+            } catch { return false; }
         }
 
-        public bool SaveFile(string path, ref object data) {
-            throw new NotImplementedException();
+        public bool SaveFile(ref object data) {
+            try {
+                using (Stream fStream = File.Create(sPath)) {
+                    xmlFormat.Serialize(fStream, data);
+                }
+                return true;
+            } catch { return false; }
         }
     }
 }

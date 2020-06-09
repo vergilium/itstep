@@ -11,7 +11,7 @@ using System.ComponentModel;
 namespace Phonebook_Class {
 
 	#region struct BOOKITEM
-	internal struct BOOKITEM {
+	public struct BOOKITEM {
 		public string sFName { get; set; }
 		public string sLName { get; set; }
 		public string sSName { get; set; }
@@ -50,17 +50,19 @@ namespace Phonebook_Class {
 		}
 	}
 	#endregion
-	partial class Phonebook {
 
-		private PBookBindingList<BOOKITEM> lBookItem;
+	[Serializable]
+	public partial class Phonebook : IDisposable {
 
+		public PBookBindingList<BOOKITEM> lBookItem { get; private set; }
+		[NonSerialized]
 		private const string sPhonePattern = @"((\+38|8|\+3|\+ )[ ]?)?([(]?\d{3}[)]?[\- ]?)?(\d[ -]?){6,14}";
 
 		public Phonebook() {
 			lBookItem = new PBookBindingList<BOOKITEM>();
 		}
 
-		public PBookBindingList<BOOKITEM> GetData() => lBookItem;
+		//public PBookBindingList<BOOKITEM> GetData() => lBookItem;
 
 		public void DelItem(int key) => lBookItem.RemoveAt(key);
 
