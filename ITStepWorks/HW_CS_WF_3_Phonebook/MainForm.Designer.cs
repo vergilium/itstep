@@ -36,7 +36,6 @@
 			this.SaveAs_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Exit_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btn_NewItem = new System.Windows.Forms.Button();
-			this.btn_AddPhone = new System.Windows.Forms.Button();
 			this.btn_EditItem = new System.Windows.Forms.Button();
 			this.text_Name = new System.Windows.Forms.TextBox();
 			this.text_LName = new System.Windows.Forms.TextBox();
@@ -74,21 +73,21 @@
 			// Open_ToolStripMenuItem
 			// 
 			this.Open_ToolStripMenuItem.Name = "Open_ToolStripMenuItem";
-			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.Open_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.Open_ToolStripMenuItem.Text = "Открыть";
 			this.Open_ToolStripMenuItem.Click += new System.EventHandler(this.Open_ToolStripMenuItem_Click);
 			// 
 			// SaveAs_ToolStripMenuItem
 			// 
 			this.SaveAs_ToolStripMenuItem.Name = "SaveAs_ToolStripMenuItem";
-			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.SaveAs_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.SaveAs_ToolStripMenuItem.Text = "Сохранить как";
 			this.SaveAs_ToolStripMenuItem.Click += new System.EventHandler(this.SaveAs_ToolStripMenuItem_Click);
 			// 
 			// Exit_ToolStripMenuItem
 			// 
 			this.Exit_ToolStripMenuItem.Name = "Exit_ToolStripMenuItem";
-			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.Exit_ToolStripMenuItem.Text = "Выход";
 			// 
 			// btn_NewItem
@@ -102,23 +101,15 @@
 			this.btn_NewItem.UseVisualStyleBackColor = true;
 			this.btn_NewItem.Click += new System.EventHandler(this.btn_NewItem_Click);
 			// 
-			// btn_AddPhone
-			// 
-			this.btn_AddPhone.Location = new System.Drawing.Point(93, 27);
-			this.btn_AddPhone.Name = "btn_AddPhone";
-			this.btn_AddPhone.Size = new System.Drawing.Size(75, 23);
-			this.btn_AddPhone.TabIndex = 2;
-			this.btn_AddPhone.Text = "Доб. Тел.";
-			this.btn_AddPhone.UseVisualStyleBackColor = true;
-			// 
 			// btn_EditItem
 			// 
-			this.btn_EditItem.Location = new System.Drawing.Point(174, 27);
+			this.btn_EditItem.Location = new System.Drawing.Point(93, 27);
 			this.btn_EditItem.Name = "btn_EditItem";
 			this.btn_EditItem.Size = new System.Drawing.Size(75, 23);
 			this.btn_EditItem.TabIndex = 3;
 			this.btn_EditItem.Text = "Изменить";
 			this.btn_EditItem.UseVisualStyleBackColor = true;
+			this.btn_EditItem.Click += new System.EventHandler(this.btn_EditItem_Click);
 			// 
 			// text_Name
 			// 
@@ -193,7 +184,6 @@
 			this.Controls.Add(this.text_LName);
 			this.Controls.Add(this.text_Name);
 			this.Controls.Add(this.btn_EditItem);
-			this.Controls.Add(this.btn_AddPhone);
 			this.Controls.Add(this.btn_NewItem);
 			this.Controls.Add(this.MainMenu);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -220,7 +210,6 @@
         private System.Windows.Forms.ToolStripMenuItem SaveAs_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Exit_ToolStripMenuItem;
 		private System.Windows.Forms.Button btn_NewItem;
-		private System.Windows.Forms.Button btn_AddPhone;
 		private System.Windows.Forms.Button btn_EditItem;
 		private System.Windows.Forms.BindingSource phonebookBindingSource;
 		private System.Windows.Forms.TextBox text_Name;

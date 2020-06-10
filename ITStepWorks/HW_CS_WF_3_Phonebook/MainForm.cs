@@ -1,16 +1,9 @@
 ﻿using Phonebook_Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HW_CS_WF_3_Phonebook
-{
+
+namespace HW_CS_WF_3_Phonebook {
     public partial class MainForm : Form
     {
         Data_Access_Layer.DAL dataLayer = new Data_Access_Layer.DAL();
@@ -20,6 +13,7 @@ namespace HW_CS_WF_3_Phonebook
         {
             InitializeComponent();
             btn_NewItem.Tag = 0;
+            btn_EditItem.Tag = 0;
             openFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
             openFileDialog.FilterIndex = Data_Access_Layer.DAL.cFileTypesCount;
             saveFileDialog.Filter = Data_Access_Layer.DAL.GetFilterTypes();
@@ -40,7 +34,8 @@ namespace HW_CS_WF_3_Phonebook
                 btn_NewItem.Text = "Добавить";
                 btn_NewItem.Tag = 1;
             } else {
-                phBook.AddItem(text_Name.Text, text_SName.Text, text_LName.Text, text_Phone.Text, text_Descr.Text);
+                if (!phBook.AddItem(text_Name.Text, text_SName.Text, text_LName.Text, text_Phone.Text, text_Descr.Text))
+                    MessageBox.Show("Запись не добавленна, проверьте корректность телефонного номера!\nФормат +38ХХХХХХХХХХ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btn_NewItem.Text = "Новый";
                 textBoxs_New_Enable(false);
                 btn_NewItem.Tag = 0;
@@ -53,7 +48,9 @@ namespace HW_CS_WF_3_Phonebook
                 return;
             else {
                dataLayer.LoadFile(openFileDialog.FileName, out object obj);
-                phBook = obj as Phonebook;
+                phBook.Dispose();
+                phBook = new Phonebook(obj);
+                mainList.DataSource = phBook.lBookItem;
             }
         }
 
@@ -68,6 +65,27 @@ namespace HW_CS_WF_3_Phonebook
         private void MainForm_Load(object sender, EventArgs e) {
             phBook = new Phonebook_Class.Phonebook();
             mainList.DataSource = phBook.lBookItem;
+        }
+
+        private void btn_EditItem_Click(object sender, EventArgs e) {
+            int index = mainList.SelectedIndex;
+            if (btn_EditItem.Tag.Equals(0)) {
+                btn_EditItem.Text = "Применить";
+                text_Name.Text = phBook.lBookItem[index].sFName;
+                text_LName.Text = phBook.lBookItem[index].sLName;
+                text_SName.Text = phBook.lBookItem[index].sSName;
+                text_Descr.Text = phBook.lBookItem[index].sDescription;
+                text_Phone.Text = phBook.lBookItem[index].sPhone[0];
+                textBoxs_New_Enable(true);
+                btn_EditItem.Tag = 1;
+            } else {
+                btn_EditItem.Text = "Изменить";
+                phBook.DelItem(index);
+                if (!phBook.AddItem(text_Name.Text, text_SName.Text, text_LName.Text, text_Phone.Text, text_Descr.Text))
+                    MessageBox.Show("Запись не добавленна, проверьте корректность телефонного номера!\nФормат +38ХХХХХХХХХХ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxs_New_Enable(false);
+                btn_EditItem.Tag = 0;
+            }
         }
     }
 }

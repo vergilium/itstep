@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using System.Collections;
-using System.Runtime.Remoting.Messaging;
 using System.ComponentModel;
 
 namespace Phonebook_Class {
@@ -27,7 +24,7 @@ namespace Phonebook_Class {
 		}
 
 		public override string ToString() {
-			StringBuilder str = new StringBuilder($"{sFName} {sLName} {sSName} {sDescription}");
+			StringBuilder str = new StringBuilder($"{sFName} {sLName} {sSName} {sDescription} ");
 			foreach (string item in sPhone) {
 				str.Insert(str.Length, item);
 			}
@@ -52,7 +49,7 @@ namespace Phonebook_Class {
 	#endregion
 
 	[Serializable]
-	public partial class Phonebook : IDisposable {
+	public class Phonebook : IDisposable {
 
 		public PBookBindingList<BOOKITEM> lBookItem { get; private set; }
 		[NonSerialized]
@@ -62,7 +59,10 @@ namespace Phonebook_Class {
 			lBookItem = new PBookBindingList<BOOKITEM>();
 		}
 
-		//public PBookBindingList<BOOKITEM> GetData() => lBookItem;
+		public Phonebook(object data) {
+			lBookItem = (data as Phonebook).lBookItem;
+			
+		}
 
 		public void DelItem(int key) => lBookItem.RemoveAt(key);
 

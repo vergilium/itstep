@@ -1,15 +1,9 @@
-﻿using Phonebook_Class;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Data_Access_Layer {
-	class XML<T> : IDataLayer, IDisposable{
+    class XML<T> : IDataLayer, IDisposable{
 
         private string sPath;
         XmlSerializer xmlFormat;
