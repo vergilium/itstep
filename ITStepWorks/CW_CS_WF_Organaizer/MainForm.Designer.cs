@@ -32,6 +32,10 @@
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -55,6 +59,9 @@
 			this.analogClock.uHandHourWidth = ((uint)(6u));
 			this.analogClock.uHandMinWidth = ((uint)(4u));
 			this.analogClock.uHandSecWidth = ((uint)(2u));
+			this.analogClock.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+			this.analogClock.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
+			this.analogClock.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
 			// 
 			// monthCalendar1
 			// 
@@ -68,7 +75,8 @@
 			// menuStrip
 			// 
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
 			this.menuStrip.Size = new System.Drawing.Size(313, 24);
@@ -84,19 +92,19 @@
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem.Text = "File";
+			this.fileToolStripMenuItem.Text = "&File";
 			// 
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
 			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.openToolStripMenuItem.Text = "Open";
+			this.openToolStripMenuItem.Text = "&Open";
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.saveToolStripMenuItem.Text = "Save";
+			this.saveToolStripMenuItem.Text = "&Save";
 			// 
 			// saveAsToolStripMenuItem
 			// 
@@ -108,7 +116,22 @@
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.exitToolStripMenuItem.Text = "Exit";
+			this.exitToolStripMenuItem.Text = "&Exit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoToolStripMenuItem});
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.helpToolStripMenuItem.Text = "&Help";
+			// 
+			// infoToolStripMenuItem
+			// 
+			this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+			this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+			this.infoToolStripMenuItem.Text = "&Info";
 			// 
 			// MainForm
 			// 
@@ -127,6 +150,9 @@
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Organaizer";
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
+			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.ResumeLayout(false);
@@ -144,6 +170,10 @@
 		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
 	}
 }
 
