@@ -1,24 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Organizer;
 
 namespace CW_CS_WF_Organaizer {
-	public partial class MainForm : Form {
+	public partial class MainForm : Form, IObserver {
 		/// 
 		/// переменные для перетаскивания формы
 		bool isDrag = false;
 		Point pDrag;
 
+		IObservable organizer;
 
-		public MainForm() {
+		public MainForm(IObservable obj) {
 			InitializeComponent();
+			organizer = obj;
+			organizer.AddObserver(this);
 		}
+
+		private void ShowEventsDialog() {
+			EventsForm dlg = new EventsForm(organizer);
+			if (dlg.ShowDialog(this) == DialogResult.OK) {
+
+			}
+		}
+
 
 
 		///
@@ -36,10 +42,39 @@ namespace CW_CS_WF_Organaizer {
 				isDrag = false;
 		}
 
+
 		////
 		///События меню тулбара
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
 			this.Close();
+		}
+
+		private void btn_Close_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+
+
+		////
+		///Инициализация основных переменных
+		private void MainForm_Load(object sender, EventArgs e) {
+
+		}
+
+		////
+		///Кнопки на отрытие диалога событий
+		private void analogClock_DoubleClick(object sender, EventArgs e) {
+			ShowEventsDialog();
+		}
+		private void btn_ViewEvents_Click(object sender, EventArgs e) {
+			ShowEventsDialog();
+		}
+		private void eventsToolStripMenuItem_Click(object sender, EventArgs e) {
+			ShowEventsDialog();
+		}
+
+
+		public void Update(object ob) {
+			Organizer.Organizer organizer = (Organizer.Organizer)ob;
 		}
 	}
 }

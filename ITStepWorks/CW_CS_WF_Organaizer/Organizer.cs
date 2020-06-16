@@ -4,25 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Organizer {
-	public delegate void SignalDelegate(int type);
+	public enum Signal : int { None = 0x00, MesssBox = 0x01, Song = 0x02};
+
+	#region Organizer struct
+	/// <summary>
+	/// Structure of item organaizer collection
+	/// </summary>
 	public struct ORGANIZER_ITEM {
 		public string sDescription;
 		public DateTime dtStartTime;
 		public DateTime dtEndTime;
-		public SignalDelegate lpSignal;
+		public Action<Signal> lpSignal;
 		public bool isActive;
+
+		public override string ToString() {
+			return $"{sDescription} -> {dtStartTime} : {(dtEndTime!=default?dtEndTime:dtStartTime)} {(isActive?"Enable":"Disable")}";
+		}
 	}
-	class Organizer : IDisposable {
-		public List<ORGANIZER_ITEM> orgList { get; private set; }
+	#endregion
+
+	#region Organizer data binding class
+	public class OrganizerDataBindingList<T> : BindingList<T> {
+		private List<T> data;
+		public OrganizerDataBindingList(int count = 0) {
+			data = new List<T>(count);
+		}
+
+		public int RemoveAll(Predicate<T> match) {
+			int cRemCount = data.RemoveAll(match);
+			ResetBindings();
+			return cRemCount;
+		}
+
+	}
+
+	#endregion
+
+	[Serializable]
+	partial class Organizer : IDisposable {
+		public OrganizerDataBindingList<ORGANIZER_ITEM> orgList { get; private set; }
 
 		/// <summary>
 		/// Organaizer collection constructor
 		/// </summary>
 		/// <param name="itemCount">Start initial lendth data</param>
 		public Organizer(int itemCount = 0) {
-			orgList = new List<ORGANIZER_ITEM>(itemCount);
+			orgList = new OrganizerDataBindingList<ORGANIZER_ITEM>(itemCount);
+			this.Add("Test", DateTime.Now, default);
 		}
 		/// <summary>
 		/// Add new Item into collection
@@ -33,7 +64,7 @@ namespace Organizer {
 		/// <param name="sig">Delegate for signal start event</param>
 		/// <param name="active">Flag is active event</param>
 		/// <returns>Bool value after end operation</returns>
-		public bool Add(string descr, DateTime start, DateTime end, SignalDelegate sig = null, bool active = true) {
+		public bool Add(string descr, DateTime start, DateTime end, Action<Signal> sig = null, bool active = true) {
 			try {
 				orgList.Add(new ORGANIZER_ITEM {
 					sDescription = descr,
