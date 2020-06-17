@@ -24,20 +24,20 @@
 		/// </summary>
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsForm));
-			this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+			this.monthCalendar = new System.Windows.Forms.MonthCalendar();
 			this.EventsListBox = new System.Windows.Forms.ListBox();
 			this.btn_NewEvent = new System.Windows.Forms.Button();
 			this.btn_EditEvent = new System.Windows.Forms.Button();
 			this.btn_DelEvent = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// monthCalendar1
+			// monthCalendar
 			// 
-			this.monthCalendar1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-			this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
-			this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
-			this.monthCalendar1.Name = "monthCalendar1";
-			this.monthCalendar1.TabIndex = 0;
+			this.monthCalendar.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+			this.monthCalendar.CalendarDimensions = new System.Drawing.Size(2, 1);
+			this.monthCalendar.Location = new System.Drawing.Point(0, 0);
+			this.monthCalendar.Name = "monthCalendar";
+			this.monthCalendar.TabIndex = 0;
 			// 
 			// EventsListBox
 			// 
@@ -45,11 +45,12 @@
 			this.EventsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.EventsListBox.ForeColor = System.Drawing.Color.Green;
 			this.EventsListBox.FormattingEnabled = true;
+			this.EventsListBox.HorizontalScrollbar = true;
 			this.EventsListBox.Location = new System.Drawing.Point(0, 202);
-			this.EventsListBox.MultiColumn = true;
 			this.EventsListBox.Name = "EventsListBox";
 			this.EventsListBox.Size = new System.Drawing.Size(332, 197);
 			this.EventsListBox.TabIndex = 1;
+			this.EventsListBox.DoubleClick += new System.EventHandler(this.EventsListBox_DoubleClick);
 			// 
 			// btn_NewEvent
 			// 
@@ -77,6 +78,7 @@
 			this.btn_EditEvent.TabIndex = 3;
 			this.btn_EditEvent.Text = "Edit Event";
 			this.btn_EditEvent.UseVisualStyleBackColor = true;
+			this.btn_EditEvent.Click += new System.EventHandler(this.EventsListBox_DoubleClick);
 			// 
 			// btn_DelEvent
 			// 
@@ -90,6 +92,7 @@
 			this.btn_DelEvent.TabIndex = 4;
 			this.btn_DelEvent.Text = "Del Event";
 			this.btn_DelEvent.UseVisualStyleBackColor = true;
+			this.btn_DelEvent.Click += new System.EventHandler(this.btn_DelEvent_Click);
 			// 
 			// EventsForm
 			// 
@@ -101,7 +104,7 @@
 			this.Controls.Add(this.btn_EditEvent);
 			this.Controls.Add(this.btn_NewEvent);
 			this.Controls.Add(this.EventsListBox);
-			this.Controls.Add(this.monthCalendar1);
+			this.Controls.Add(this.monthCalendar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -117,7 +120,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.MonthCalendar monthCalendar1;
+		private System.Windows.Forms.MonthCalendar monthCalendar;
 		private System.Windows.Forms.ListBox EventsListBox;
 		private System.Windows.Forms.Button btn_NewEvent;
 		private System.Windows.Forms.Button btn_EditEvent;

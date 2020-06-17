@@ -36,12 +36,12 @@
 			this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.eventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.upcomingEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.btn_ViewEvents = new System.Windows.Forms.Button();
 			this.btn_Close = new System.Windows.Forms.Button();
 			this.btn_upcomEvent = new System.Windows.Forms.Button();
-			this.upcomingEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -157,9 +157,15 @@
 			// eventsToolStripMenuItem
 			// 
 			this.eventsToolStripMenuItem.Name = "eventsToolStripMenuItem";
-			this.eventsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.eventsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
 			this.eventsToolStripMenuItem.Text = "&Events";
 			this.eventsToolStripMenuItem.Click += new System.EventHandler(this.eventsToolStripMenuItem_Click);
+			// 
+			// upcomingEventToolStripMenuItem
+			// 
+			this.upcomingEventToolStripMenuItem.Name = "upcomingEventToolStripMenuItem";
+			this.upcomingEventToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+			this.upcomingEventToolStripMenuItem.Text = "&Upcoming event";
 			// 
 			// btn_ViewEvents
 			// 
@@ -201,12 +207,6 @@
 			this.btn_upcomEvent.TabIndex = 5;
 			this.btn_upcomEvent.Text = "Upcoming event";
 			this.btn_upcomEvent.UseVisualStyleBackColor = true;
-			// 
-			// upcomingEventToolStripMenuItem
-			// 
-			this.upcomingEventToolStripMenuItem.Name = "upcomingEventToolStripMenuItem";
-			this.upcomingEventToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.upcomingEventToolStripMenuItem.Text = "&Upcoming event";
 			// 
 			// MainForm
 			// 
