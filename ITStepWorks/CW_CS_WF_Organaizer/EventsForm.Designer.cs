@@ -35,7 +35,7 @@
 			// 
 			this.monthCalendar1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
 			this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
-			this.monthCalendar1.Location = new System.Drawing.Point(0, -1);
+			this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
 			this.monthCalendar1.Name = "monthCalendar1";
 			this.monthCalendar1.TabIndex = 0;
 			// 
