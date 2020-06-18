@@ -12,10 +12,10 @@ namespace Organizer {
 		void RemoveObserver(IObserver o);
 		void NotifyObservers();
 	}
-    public partial class Organizer : IObservable {
+    public partial class Organizer :  IObservable {
+        [NonSerialized]
+        private List<IObserver> orgnzr;
 
-
-        private List<IObserver> orgnzr = new List<IObserver>();
         /// <summary>
         /// Add class to observer list
         /// </summary>

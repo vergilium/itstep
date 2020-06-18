@@ -69,5 +69,9 @@ namespace CW_CS_WF_Organaizer {
 			isAcceptClose = true;
 			this.Close();
 		}
+
+		private void dtPicker_EventStart_MouseCaptureChanged(object sender, EventArgs e) {
+			if (dtPicker_EventEnd.Value < dtPicker_EventStart.Value) dtPicker_EventEnd.Value = dtPicker_EventStart.Value;
+		}
 	}
 }

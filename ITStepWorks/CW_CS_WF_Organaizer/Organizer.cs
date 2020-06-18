@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Collections;
 
 namespace Organizer {
 	public enum Signal : int { None = 0x00, MesssBox = 0x01, Song = 0x02};
@@ -29,8 +30,8 @@ namespace Organizer {
 	#region Organizer data binding class
 	public class OrganizerDataBindingList<T> : BindingList<T> {
 		private List<T> data;
-		public OrganizerDataBindingList(int count = 0) {
-			data = new List<T>(count);
+		public OrganizerDataBindingList(List<T> list) : base(list) {
+			data = list;
 		}
 
 		public int RemoveAll(Predicate<T> match) {
@@ -40,12 +41,21 @@ namespace Organizer {
 		}
 
 		public void Sort() {
-			data.Sort();
+			data?.Sort();
 			ResetBindings();
 		}
 
 		public void Sort(Comparison<T> comparison) {
-			data.Sort(comparison);
+			data?.Sort(comparison);
+			ResetBindings();
+		}
+		public void Sort(IComparer<T> comparer) {
+			data?.Sort(comparer);
+			ResetBindings();
+		}
+
+		public void Sort(int index, int count, IComparer<T> comparer) {
+			data.Sort(index, count, comparer);
 			ResetBindings();
 		}
 
@@ -54,15 +64,22 @@ namespace Organizer {
 	#endregion
 
 	[Serializable]
-	partial class Organizer : IDisposable {
+	public partial class Organizer : IDisposable {
 		public OrganizerDataBindingList<ORGANIZER_ITEM> orgList { get; private set; }
 
 		/// <summary>
 		/// Organaizer collection constructor
 		/// </summary>
-		/// <param name="itemCount">Start initial lendth data</param>
-		public Organizer(int itemCount = 0) {
-			orgList = new OrganizerDataBindingList<ORGANIZER_ITEM>(itemCount);
+		public Organizer() {
+			orgnzr = new List<IObserver>();
+			orgList = new OrganizerDataBindingList<ORGANIZER_ITEM>(new List<ORGANIZER_ITEM>());
+		}
+		/// <summary>
+		/// Organaizer collection constructor
+		/// </summary>
+		/// <param name="list">List<ORGANIZER_ITEM></param>
+		public Organizer(Organizer obj) {
+			orgList = obj.orgList;
 		}
 		/// <summary>
 		/// Add new Item into collection

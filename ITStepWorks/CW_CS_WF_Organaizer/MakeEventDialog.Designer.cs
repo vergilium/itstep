@@ -61,6 +61,8 @@
 			this.dtPicker_EventStart.Name = "dtPicker_EventStart";
 			this.dtPicker_EventStart.Size = new System.Drawing.Size(200, 20);
 			this.dtPicker_EventStart.TabIndex = 2;
+			this.dtPicker_EventStart.ValueChanged += new System.EventHandler(this.dtPicker_EventStart_MouseCaptureChanged);
+			this.dtPicker_EventStart.MouseCaptureChanged += new System.EventHandler(this.dtPicker_EventStart_MouseCaptureChanged);
 			// 
 			// label_EventStart
 			// 
@@ -93,6 +95,8 @@
 			// checkBox_EventEnable
 			// 
 			this.checkBox_EventEnable.AutoSize = true;
+			this.checkBox_EventEnable.Checked = true;
+			this.checkBox_EventEnable.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBox_EventEnable.ForeColor = System.Drawing.Color.Green;
 			this.checkBox_EventEnable.Location = new System.Drawing.Point(12, 114);
 			this.checkBox_EventEnable.Name = "checkBox_EventEnable";

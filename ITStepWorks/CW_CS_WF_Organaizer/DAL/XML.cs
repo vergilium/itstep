@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Data_Access_Layer {
@@ -7,8 +8,6 @@ namespace Data_Access_Layer {
 
         private string sPath;
         XmlSerializer xmlFormat;
-        public XML() :
-            this("phonebook.xml") { }
 
         public XML(string path) {
             xmlFormat = new XmlSerializer(typeof(T));
@@ -27,16 +26,21 @@ namespace Data_Access_Layer {
                 Deserialize(fStream);
             }
                 return true;
-            } catch { return false; }
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Error open file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
+            }
         }
 
         public bool SaveFile(ref object data) {
             try {
                 using (Stream fStream = File.Create(sPath)) {
-                    xmlFormat.Serialize(fStream, data);
+                    xmlFormat.Serialize(fStream, (T)data);
                 }
                 return true;
-            } catch { return false; }
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Error save file!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; }
         }
     }
 }

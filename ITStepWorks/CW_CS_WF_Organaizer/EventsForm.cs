@@ -10,20 +10,28 @@ using System.Windows.Forms;
 using Organizer;
 
 namespace CW_CS_WF_Organaizer {
-	public enum SortMethod : int { Date_Des, Date_Asc, Name_Des, Name_Asc };
+	public enum SortMethod : int { SortDate, SortText };
+
 	public partial class EventsForm : Form, IObserver {
 		MakeEventDialog mdlg;
 
 		IObservable IOrganizer;
 		Organizer.Organizer organizer;
 
+		private Comparison<ORGANIZER_ITEM>[] cmpSort = new Comparison<ORGANIZER_ITEM>[] {
+			(a,b)=>a.dtStartTime.CompareTo(b.dtStartTime),
+			(a,b)=>a.sDescription.CompareTo(b.sDescription)
+		};
+
 		int iCurPosition;
 		public EventsForm(IObservable obj) {
 			InitializeComponent();
+
 			string[] items = Enum.GetValues(typeof(SortMethod)).Cast<SortMethod>().Select(v => v.ToString()).ToArray();
 			comboBox_Sort.Items.AddRange(items);
 			comboBox_Sort.SelectedIndex = 0;
-			IOrganizer = obj as Organizer.Organizer;
+
+			IOrganizer = obj;
 			IOrganizer.AddObserver(this);
 		}
 
@@ -83,5 +91,12 @@ namespace CW_CS_WF_Organaizer {
 			}
 		}
 
+		private void comboBox_Sort_MouseCaptureChanged(object sender, EventArgs e) {
+			
+		}
+
+		private void comboBox_Sort_SelectedIndexChanged(object sender, EventArgs e) {
+			organizer?.orgList.Sort(cmpSort[comboBox_Sort.SelectedIndex]);
+		}
 	}
 }

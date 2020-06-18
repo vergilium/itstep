@@ -102,6 +102,8 @@
 			this.comboBox_Sort.Name = "comboBox_Sort";
 			this.comboBox_Sort.Size = new System.Drawing.Size(64, 21);
 			this.comboBox_Sort.TabIndex = 5;
+			this.comboBox_Sort.SelectedIndexChanged += new System.EventHandler(this.comboBox_Sort_SelectedIndexChanged);
+			this.comboBox_Sort.MouseCaptureChanged += new System.EventHandler(this.comboBox_Sort_MouseCaptureChanged);
 			// 
 			// EventsForm
 			// 
