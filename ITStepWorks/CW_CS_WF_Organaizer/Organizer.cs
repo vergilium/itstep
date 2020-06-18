@@ -66,7 +66,7 @@ namespace Organizer {
 	[Serializable]
 	public partial class Organizer : IDisposable {
 		public OrganizerDataBindingList<ORGANIZER_ITEM> orgList { get; private set; }
-
+		private bool _disposed = false;
 		/// <summary>
 		/// Organaizer collection constructor
 		/// </summary>
@@ -77,9 +77,10 @@ namespace Organizer {
 		/// <summary>
 		/// Organaizer collection constructor
 		/// </summary>
-		/// <param name="list">List<ORGANIZER_ITEM></param>
+		/// <param name="obj">Type Organizer</param>
 		public Organizer(Organizer obj) {
 			orgList = obj.orgList;
+			orgnzr = new List<IObserver>();
 		}
 		/// <summary>
 		/// Add new Item into collection
@@ -117,6 +118,15 @@ namespace Organizer {
 				return false;
 			}
 		}
+
+		public bool SetListData(Organizer obj) {
+			try {
+				orgList = obj.orgList;
+				return true;
+			} catch {
+				return false;
+			}
+		}
 		/// <summary>
 		/// Remove element at the index
 		/// </summary>
@@ -149,9 +159,20 @@ namespace Organizer {
 		/// <summary>
 		/// Dispose collection
 		/// </summary>
-		public void Dispose() {
-			orgList.Clear();
-			orgList = null;
+		public void Dispose() => Dispose(true);
+
+		protected virtual void Dispose(bool disposing) {
+			if (_disposed) {
+				return;
+			}
+
+			if (disposing) {
+				// Dispose managed state (managed objects).
+				orgList?.Clear();
+				orgnzr?.Clear();
+			}
+
+			_disposed = true;
 		}
 	}
 }

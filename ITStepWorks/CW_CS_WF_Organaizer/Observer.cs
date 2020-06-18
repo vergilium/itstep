@@ -37,5 +37,6 @@ namespace Organizer {
             foreach (IObserver o in orgnzr)
                 o.Update(this);
         }
+        
     }
 }

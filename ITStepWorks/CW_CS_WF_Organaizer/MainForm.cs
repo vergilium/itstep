@@ -80,9 +80,8 @@ namespace CW_CS_WF_Organaizer {
 				return;
 			else {
 				if (dataLayer.LoadFile(openFileDialog.FileName, out object obj)) {
-					organizer.Dispose();
-					organizer = new Organizer.Organizer(obj as Organizer.Organizer);
-					IOrganizer.NotifyObservers();
+					organizer.SetListData(obj as Organizer.Organizer);
+					MainForm_Load(sender, e);
 				}
 			}
 		}
