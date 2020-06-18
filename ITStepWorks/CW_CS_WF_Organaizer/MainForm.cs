@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Organizer;
 
@@ -10,16 +11,16 @@ namespace CW_CS_WF_Organaizer {
 		bool isDrag = false;
 		Point pDrag;
 
-		IObservable organizer;
-
+		IObservable IOrganizer;
+		Organizer.Organizer organizer;
 		public MainForm(IObservable obj) {
 			InitializeComponent();
-			organizer = obj;
-			organizer.AddObserver(this);
+			IOrganizer = obj;
+			IOrganizer.AddObserver(this);
 		}
 
 		private void ShowEventsDialog() {
-			EventsForm dlg = new EventsForm(organizer);
+			EventsForm dlg = new EventsForm(IOrganizer);
 			if (dlg.ShowDialog(this) == DialogResult.OK) {
 
 			}
@@ -57,7 +58,9 @@ namespace CW_CS_WF_Organaizer {
 		////
 		///Инициализация основных переменных
 		private void MainForm_Load(object sender, EventArgs e) {
-
+			IOrganizer.NotifyObservers();
+			CalendarRefresh(sender, e);
+			organizer.orgList.ListChanged += CalendarRefresh;
 		}
 
 		////
@@ -71,10 +74,23 @@ namespace CW_CS_WF_Organaizer {
 		private void eventsToolStripMenuItem_Click(object sender, EventArgs e) {
 			ShowEventsDialog();
 		}
+		private void btn_upcomEvent_Click(object sender, EventArgs e) {
+			try {
+				MessageBox.Show(organizer.orgList.First(delegate (ORGANIZER_ITEM o) { return o.dtStartTime.Day >= DateTime.Now.Day; }).ToString());
+			} catch {
+				MessageBox.Show("No events for view!", "No events", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 
+		}
 
 		public void Update(object ob) {
-			Organizer.Organizer organizer = (Organizer.Organizer)ob;
+			organizer = (Organizer.Organizer)ob;
 		}
+
+		private void CalendarRefresh(object sender, EventArgs e) {
+			monthCalendar_Main.BoldedDates = organizer.GetEventDates();
+		}
+
+
 	}
 }

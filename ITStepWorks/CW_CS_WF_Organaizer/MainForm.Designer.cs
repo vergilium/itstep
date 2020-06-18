@@ -25,7 +25,7 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.analogClock = new UserControl_AnalogClock.AnalogClock();
-			this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+			this.monthCalendar_Main = new System.Windows.Forms.MonthCalendar();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,14 +70,14 @@
 			this.analogClock.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
 			this.analogClock.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
 			// 
-			// monthCalendar1
+			// monthCalendar_Main
 			// 
-			this.monthCalendar1.BackColor = System.Drawing.SystemColors.WindowFrame;
-			this.monthCalendar1.Location = new System.Drawing.Point(18, 372);
-			this.monthCalendar1.Name = "monthCalendar1";
-			this.monthCalendar1.TabIndex = 1;
-			this.monthCalendar1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(5)))));
-			this.monthCalendar1.TitleForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.monthCalendar_Main.BackColor = System.Drawing.SystemColors.WindowFrame;
+			this.monthCalendar_Main.Location = new System.Drawing.Point(18, 372);
+			this.monthCalendar_Main.Name = "monthCalendar_Main";
+			this.monthCalendar_Main.TabIndex = 1;
+			this.monthCalendar_Main.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(5)))));
+			this.monthCalendar_Main.TitleForeColor = System.Drawing.SystemColors.ActiveCaption;
 			// 
 			// menuStrip
 			// 
@@ -207,6 +207,7 @@
 			this.btn_upcomEvent.TabIndex = 5;
 			this.btn_upcomEvent.Text = "Upcoming event";
 			this.btn_upcomEvent.UseVisualStyleBackColor = true;
+			this.btn_upcomEvent.Click += new System.EventHandler(this.btn_upcomEvent_Click);
 			// 
 			// MainForm
 			// 
@@ -216,7 +217,7 @@
 			this.Controls.Add(this.btn_upcomEvent);
 			this.Controls.Add(this.btn_Close);
 			this.Controls.Add(this.btn_ViewEvents);
-			this.Controls.Add(this.monthCalendar1);
+			this.Controls.Add(this.monthCalendar_Main);
 			this.Controls.Add(this.analogClock);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -242,7 +243,7 @@
 		#endregion
 
 		private UserControl_AnalogClock.AnalogClock analogClock;
-		private System.Windows.Forms.MonthCalendar monthCalendar1;
+		private System.Windows.Forms.MonthCalendar monthCalendar_Main;
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;

@@ -39,6 +39,16 @@ namespace Organizer {
 			return cRemCount;
 		}
 
+		public void Sort() {
+			data.Sort();
+			ResetBindings();
+		}
+
+		public void Sort(Comparison<T> comparison) {
+			data.Sort(comparison);
+			ResetBindings();
+		}
+
 	}
 
 	#endregion
@@ -113,10 +123,18 @@ namespace Organizer {
 		/// <returns>Int count removed events</returns>
 		public int ClearOldEvents() => orgList.RemoveAll(delegate (ORGANIZER_ITEM x) { return x.dtEndTime < DateTime.Now; });
 		/// <summary>
+		/// Get array from planed date
+		/// </summary>
+		/// <returns>DateTime[] array dates</returns>
+		public DateTime[] GetEventDates() {
+			return orgList.Select(d => d.dtStartTime).ToArray();
+		}
+		/// <summary>
 		/// Dispose collection
 		/// </summary>
 		public void Dispose() {
 			orgList.Clear();
+			orgList = null;
 		}
 	}
 }

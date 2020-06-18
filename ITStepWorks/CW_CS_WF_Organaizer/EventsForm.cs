@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Organizer;
 
 namespace CW_CS_WF_Organaizer {
+	public enum SortMethod : int { Date_Des, Date_Asc, Name_Des, Name_Asc };
 	public partial class EventsForm : Form, IObserver {
 		MakeEventDialog mdlg;
 
@@ -19,6 +20,9 @@ namespace CW_CS_WF_Organaizer {
 		int iCurPosition;
 		public EventsForm(IObservable obj) {
 			InitializeComponent();
+			string[] items = Enum.GetValues(typeof(SortMethod)).Cast<SortMethod>().Select(v => v.ToString()).ToArray();
+			comboBox_Sort.Items.AddRange(items);
+			comboBox_Sort.SelectedIndex = 0;
 			IOrganizer = obj as Organizer.Organizer;
 			IOrganizer.AddObserver(this);
 		}
@@ -31,20 +35,20 @@ namespace CW_CS_WF_Organaizer {
 
 		}
 
-		private void CalendarRefresh() {
-			monthCalendar.BoldedDates = organizer.orgList.Select(d => d.dtStartTime).ToArray();
+		private void CalendarRefresh(object sender, EventArgs e) {
+			monthCalendar.BoldedDates = organizer.GetEventDates();
 		}
 
 		private void EventsForm_Load(object sender, EventArgs e) {
 			IOrganizer.NotifyObservers();
-			CalendarRefresh();
+			CalendarRefresh(sender, e);
+			organizer.orgList.ListChanged += CalendarRefresh;
 		}
 
 		private void btn_NewEvent_Click(object sender, EventArgs e) {
 			if (Open_EditDialog(null)) {
 				organizer.Add(mdlg.ReturnData());
 				mdlg.Dispose();
-
 			}
 		}
 
@@ -54,12 +58,13 @@ namespace CW_CS_WF_Organaizer {
 		}
 
 		private void EventsForm_FormClosing(object sender, FormClosingEventArgs e) {
+			organizer.orgList.ListChanged -= CalendarRefresh;
 			IOrganizer.RemoveObserver(this);
 			IOrganizer = null;
 		}
 
 		private void EventsListBox_DoubleClick(object sender, EventArgs e) {
-			if ((iCurPosition = EventsListBox.SelectedIndex) <= 0) {
+			if ((iCurPosition = EventsListBox.SelectedIndex) < 0) {
 				btn_NewEvent_Click(sender, e);
 			} else {
 				if (Open_EditDialog(organizer.orgList[iCurPosition])) {
@@ -77,5 +82,6 @@ namespace CW_CS_WF_Organaizer {
 				organizer.RemoveAt(iCurPosition);
 			}
 		}
+
 	}
 }

@@ -12,8 +12,10 @@ using System.Windows.Forms;
 namespace CW_CS_WF_Organaizer {
 	public partial class MakeEventDialog : Form, IDisposable {
 		ORGANIZER_ITEM item;
+		bool isAcceptClose;
 		public MakeEventDialog(ORGANIZER_ITEM? item) {
 			InitializeComponent();
+			isAcceptClose = false;
 			dtPicker_EventStart.Format = DateTimePickerFormat.Custom;
 			dtPicker_EventEnd.Format = DateTimePickerFormat.Custom;
 			string[] ob = Enum.GetValues(typeof(Signal)).Cast<Signal>().Select(v => v.ToString()).ToArray();
@@ -55,11 +57,17 @@ namespace CW_CS_WF_Organaizer {
 		}
 
 		private void MakeEventDialog_FormClosed(object sender, FormClosedEventArgs e) {
+			if (isAcceptClose) { this.DialogResult = DialogResult.OK; return; }
 			if (MessageBox.Show("Save changed?", "Save?", MessageBoxButtons.YesNo) == DialogResult.Yes) {
 				this.DialogResult = DialogResult.OK;
 			} else {
 				this.DialogResult = DialogResult.Cancel;
 			}
+		}
+
+		private void btn_Accept_Click(object sender, EventArgs e) {
+			isAcceptClose = true;
+			this.Close();
 		}
 	}
 }

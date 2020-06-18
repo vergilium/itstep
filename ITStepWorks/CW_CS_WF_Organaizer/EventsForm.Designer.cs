@@ -29,6 +29,7 @@
 			this.btn_NewEvent = new System.Windows.Forms.Button();
 			this.btn_EditEvent = new System.Windows.Forms.Button();
 			this.btn_DelEvent = new System.Windows.Forms.Button();
+			this.comboBox_Sort = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// monthCalendar
@@ -94,12 +95,21 @@
 			this.btn_DelEvent.UseVisualStyleBackColor = true;
 			this.btn_DelEvent.Click += new System.EventHandler(this.btn_DelEvent_Click);
 			// 
+			// comboBox_Sort
+			// 
+			this.comboBox_Sort.FormattingEnabled = true;
+			this.comboBox_Sort.Location = new System.Drawing.Point(256, 172);
+			this.comboBox_Sort.Name = "comboBox_Sort";
+			this.comboBox_Sort.Size = new System.Drawing.Size(64, 21);
+			this.comboBox_Sort.TabIndex = 5;
+			// 
 			// EventsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(5)))));
 			this.ClientSize = new System.Drawing.Size(332, 411);
+			this.Controls.Add(this.comboBox_Sort);
 			this.Controls.Add(this.btn_DelEvent);
 			this.Controls.Add(this.btn_EditEvent);
 			this.Controls.Add(this.btn_NewEvent);
@@ -125,5 +135,6 @@
 		private System.Windows.Forms.Button btn_NewEvent;
 		private System.Windows.Forms.Button btn_EditEvent;
 		private System.Windows.Forms.Button btn_DelEvent;
+		private System.Windows.Forms.ComboBox comboBox_Sort;
 	}
 }

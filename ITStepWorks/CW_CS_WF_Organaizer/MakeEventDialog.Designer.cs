@@ -31,6 +31,8 @@
 			this.label_EventEnd = new System.Windows.Forms.Label();
 			this.checkBox_EventEnable = new System.Windows.Forms.CheckBox();
 			this.comboBox_TypeSignal = new System.Windows.Forms.ComboBox();
+			this.btn_Cancel = new System.Windows.Forms.Button();
+			this.btn_Accept = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label_EDescription
@@ -107,12 +109,44 @@
 			this.comboBox_TypeSignal.Size = new System.Drawing.Size(105, 21);
 			this.comboBox_TypeSignal.TabIndex = 7;
 			// 
+			// btn_Cancel
+			// 
+			this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_Cancel.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+			this.btn_Cancel.FlatAppearance.BorderSize = 2;
+			this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_Cancel.ForeColor = System.Drawing.Color.Green;
+			this.btn_Cancel.Location = new System.Drawing.Point(44, 250);
+			this.btn_Cancel.Name = "btn_Cancel";
+			this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+			this.btn_Cancel.TabIndex = 8;
+			this.btn_Cancel.Text = "Cancel";
+			this.btn_Cancel.UseVisualStyleBackColor = true;
+			// 
+			// btn_Accept
+			// 
+			this.btn_Accept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_Accept.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+			this.btn_Accept.FlatAppearance.BorderSize = 2;
+			this.btn_Accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_Accept.ForeColor = System.Drawing.Color.Green;
+			this.btn_Accept.Location = new System.Drawing.Point(132, 250);
+			this.btn_Accept.Name = "btn_Accept";
+			this.btn_Accept.Size = new System.Drawing.Size(75, 23);
+			this.btn_Accept.TabIndex = 9;
+			this.btn_Accept.Text = "Accept";
+			this.btn_Accept.UseVisualStyleBackColor = true;
+			this.btn_Accept.Click += new System.EventHandler(this.btn_Accept_Click);
+			// 
 			// MakeEventDialog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(5)))));
-			this.ClientSize = new System.Drawing.Size(219, 246);
+			this.CancelButton = this.btn_Cancel;
+			this.ClientSize = new System.Drawing.Size(219, 285);
+			this.Controls.Add(this.btn_Accept);
+			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.comboBox_TypeSignal);
 			this.Controls.Add(this.checkBox_EventEnable);
 			this.Controls.Add(this.label_EventEnd);
@@ -143,5 +177,7 @@
 		private System.Windows.Forms.Label label_EventEnd;
 		private System.Windows.Forms.CheckBox checkBox_EventEnable;
 		private System.Windows.Forms.ComboBox comboBox_TypeSignal;
+		private System.Windows.Forms.Button btn_Cancel;
+		private System.Windows.Forms.Button btn_Accept;
 	}
 }
