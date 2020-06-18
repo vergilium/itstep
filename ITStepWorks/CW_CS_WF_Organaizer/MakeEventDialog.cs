@@ -13,7 +13,7 @@ namespace CW_CS_WF_Organaizer {
 	public partial class MakeEventDialog : Form, IDisposable {
 		ORGANIZER_ITEM item;
 		bool isAcceptClose;
-		public MakeEventDialog(ORGANIZER_ITEM? item) {
+		public MakeEventDialog(ORGANIZER_ITEM item) {
 			InitializeComponent();
 			isAcceptClose = false;
 			dtPicker_EventStart.Format = DateTimePickerFormat.Custom;
@@ -21,8 +21,7 @@ namespace CW_CS_WF_Organaizer {
 			string[] ob = Enum.GetValues(typeof(Signal)).Cast<Signal>().Select(v => v.ToString()).ToArray();
 			comboBox_TypeSignal.Items.AddRange(ob);
 			comboBox_TypeSignal.SelectedIndex = 0;
-			if (item != null) this.item = (ORGANIZER_ITEM)item;
-			else item = new ORGANIZER_ITEM();
+			if (item != null) this.item = item;
 		}
 
 		public ORGANIZER_ITEM ReturnData() {
@@ -44,7 +43,8 @@ namespace CW_CS_WF_Organaizer {
 
 		private void MakeEventDialog_Load(object sender, EventArgs e) {
 			try {
-				if (!item.Equals(default(ORGANIZER_ITEM))) {
+				if (item is null) { item = new ORGANIZER_ITEM(); } 
+				else { 
 					textBox_Description.Text = item.sDescription;
 					dtPicker_EventStart.Value = item.dtStartTime;
 					dtPicker_EventEnd.Value = item.dtEndTime;

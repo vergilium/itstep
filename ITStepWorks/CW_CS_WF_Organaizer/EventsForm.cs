@@ -35,7 +35,7 @@ namespace CW_CS_WF_Organaizer {
 			IOrganizer.AddObserver(this);
 		}
 
-		private bool Open_EditDialog(ORGANIZER_ITEM? item) {
+		private bool Open_EditDialog(ORGANIZER_ITEM item) {
 			mdlg = new MakeEventDialog(item);
 			if (mdlg.ShowDialog(this) == DialogResult.OK) 
 				return true;

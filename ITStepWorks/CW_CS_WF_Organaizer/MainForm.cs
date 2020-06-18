@@ -117,12 +117,15 @@ namespace CW_CS_WF_Organaizer {
 		}
 		private void btn_upcomEvent_Click(object sender, EventArgs e) {
 			try {
-				MessageBox.Show(organizer.orgList.First(delegate (ORGANIZER_ITEM o) { return o.dtStartTime.Day >= DateTime.Now.Day; }).ToString());
+				MessageBox.Show(organizer.GetFirstDate().ToString());
 			} catch {
 				MessageBox.Show("No events for view!", "No events", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 
 		}
 
+		private void timer_EventActive_Tick(object sender, EventArgs e) {
+			organizer.SignalActive();
+		}
 	}
 }

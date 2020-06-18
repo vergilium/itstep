@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace Organizer {
 	public enum Signal : int { None = 0x00, MesssBox = 0x01, Song = 0x02};
@@ -14,12 +15,16 @@ namespace Organizer {
 	/// <summary>
 	/// Structure of item organaizer collection
 	/// </summary>
-	public struct ORGANIZER_ITEM {
+	public class ORGANIZER_ITEM : IComparer {
 		public string sDescription;
 		public DateTime dtStartTime;
 		public DateTime dtEndTime;
 		public Signal eSignal;
 		public bool isActive;
+
+		public int Compare(object x, object y) {
+			return (x as ORGANIZER_ITEM).dtStartTime.CompareTo((y as ORGANIZER_ITEM).dtStartTime);
+		}
 
 		public override string ToString() {
 			return $" {dtStartTime} : {sDescription} -> {(isActive?"Enable":"Disable")}";
@@ -156,6 +161,26 @@ namespace Organizer {
 		public DateTime[] GetEventDates() {
 			return orgList.Select(d => d.dtStartTime).ToArray();
 		}
+		public ORGANIZER_ITEM GetFirstDate() {
+			DateTime dtNow = DateTime.Now;
+			try {
+				return orgList.First(delegate (ORGANIZER_ITEM o) { return o.dtStartTime >= dtNow.AddMinutes; });
+			} catch { return null; }
+		}
+
+		public void SignalActive() {
+			DateTime dtNow = DateTime.Now;
+			ORGANIZER_ITEM first = GetFirstDate();
+			if(first != null && first.isActive == true && first.dtStartTime >= dtNow && first.dtStartTime.AddMinutes(1) < dtNow) {
+				switch (first.eSignal) {
+					case Signal.MesssBox: MessageBox.Show(first.ToString(), "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information); break;
+					case Signal.Song: break;
+					default:break;
+				}
+
+			}
+		}
+
 		/// <summary>
 		/// Dispose collection
 		/// </summary>

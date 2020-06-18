@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.analogClock = new UserControl_AnalogClock.AnalogClock();
 			this.monthCalendar_Main = new System.Windows.Forms.MonthCalendar();
@@ -42,6 +43,7 @@
 			this.btn_ViewEvents = new System.Windows.Forms.Button();
 			this.btn_Close = new System.Windows.Forms.Button();
 			this.btn_upcomEvent = new System.Windows.Forms.Button();
+			this.timer_EventActive = new System.Windows.Forms.Timer(this.components);
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -108,28 +110,28 @@
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
 			this.openToolStripMenuItem.Text = "&Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
 			this.saveToolStripMenuItem.Text = "&Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
 			this.saveAsToolStripMenuItem.Text = "Save as";
 			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
 			this.exitToolStripMenuItem.Text = "&Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -212,6 +214,12 @@
 			this.btn_upcomEvent.UseVisualStyleBackColor = true;
 			this.btn_upcomEvent.Click += new System.EventHandler(this.btn_upcomEvent_Click);
 			// 
+			// timer_EventActive
+			// 
+			this.timer_EventActive.Enabled = true;
+			this.timer_EventActive.Interval = 1000;
+			this.timer_EventActive.Tick += new System.EventHandler(this.timer_EventActive_Tick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -263,6 +271,7 @@
 		private System.Windows.Forms.ToolStripMenuItem eventsToolStripMenuItem;
 		private System.Windows.Forms.Button btn_upcomEvent;
 		private System.Windows.Forms.ToolStripMenuItem upcomingEventToolStripMenuItem;
+		private System.Windows.Forms.Timer timer_EventActive;
 	}
 }
 
