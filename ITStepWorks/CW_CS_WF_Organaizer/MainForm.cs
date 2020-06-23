@@ -116,12 +116,8 @@ namespace CW_CS_WF_Organaizer {
 			ShowEventsDialog();
 		}
 		private void btn_upcomEvent_Click(object sender, EventArgs e) {
-			try {
-				MessageBox.Show(organizer.GetFirstDate().ToString());
-			} catch {
-				MessageBox.Show("No events for view!", "No events", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-
+			string msg = organizer.GetFirstDate()?.ToString();
+				MessageBox.Show((msg!=null?msg:"No events for view!"), "Info", MessageBoxButtons.OK);
 		}
 
 		private void timer_EventActive_Tick(object sender, EventArgs e) {

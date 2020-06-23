@@ -161,10 +161,11 @@ namespace Organizer {
 		public DateTime[] GetEventDates() {
 			return orgList.Select(d => d.dtStartTime).ToArray();
 		}
+
 		public ORGANIZER_ITEM GetFirstDate() {
 			DateTime dtNow = DateTime.Now;
 			try {
-				return orgList.First(delegate (ORGANIZER_ITEM o) { return o.dtStartTime >= dtNow.AddMinutes; });
+				return orgList.First((a) => a.dtStartTime >= DateTime.Now);
 			} catch { return null; }
 		}
 
