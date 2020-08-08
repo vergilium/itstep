@@ -243,6 +243,7 @@
 			this.btn_Clear.TabIndex = 2;
 			this.btn_Clear.Text = "Clear";
 			this.btn_Clear.UseVisualStyleBackColor = true;
+			this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
 			// 
 			// btn_Save
 			// 
@@ -262,6 +263,7 @@
 			this.btn_Cancel.TabIndex = 4;
 			this.btn_Cancel.Text = "Cancel";
 			this.btn_Cancel.UseVisualStyleBackColor = true;
+			this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
 			// 
 			// ofd_OpenPhoto
 			// 
@@ -286,6 +288,7 @@
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "NewEmploee";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewEmploee_FormClosing);
 			this.Load += new System.EventHandler(this.NewEmploee_Load);
 			this.gb_account.ResumeLayout(false);
 			this.gb_account.PerformLayout();

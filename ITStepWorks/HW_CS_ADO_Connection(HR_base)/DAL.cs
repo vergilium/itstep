@@ -1,16 +1,13 @@
 ﻿using Npgsql;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HW_CS_ADO_Connection_HR_base_ {
@@ -56,6 +53,58 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 	}
 	#endregion
 
+	#region Image Photo class
+	public static class Photo {
+		
+		public static byte[] Resize(string path, int maxWidth=100, int maxHeight=100) {
+			try {
+				Image img = Image.FromFile(path);
+				double ratioX = (double)maxWidth / img.Width;
+				double ratioY = (double)maxHeight / img.Height;
+				double ratio = Math.Min(ratioX, ratioY);
+				int newWidth = (int)(img.Width * ratio);
+				int newHeight = (int)(img.Height * ratio);
+				Image mi = new Bitmap(newWidth, newHeight);
+				//рисунок в памяти
+				Graphics g = Graphics.FromImage(mi);
+				g.DrawImage(img, 0, 0, newWidth, newHeight);
+				MemoryStream ms = new MemoryStream();
+				//поток для ввода|вывода байт из памяти
+				mi.Save(ms, ImageFormat.Jpeg);
+				ms.Flush();//выносим в поток все данные из буфера
+				ms.Seek(0, SeekOrigin.Begin);
+				BinaryReader br = new BinaryReader(ms);
+				byte[] buf = br.ReadBytes((int)ms.Length);
+				return buf;
+			} catch(Exception ex) {
+				MessageBox.Show(ex.Message, "Image error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
+		}
+
+		public static Image Resize(Image img, int maxWidth = 100, int maxHeight = 100) {
+			double ratioX = (double)maxWidth / img.Width;
+			double ratioY = (double)maxHeight / img.Height;
+			double ratio = Math.Min(ratioX, ratioY);
+			int newWidth = (int)(img.Width * ratio);
+			int newHeight = (int)(img.Height * ratio);
+			Image mi = new Bitmap(newWidth, newHeight);
+			Graphics g = Graphics.FromImage(mi);
+			g.DrawImage(img, 0, 0, newWidth, newHeight);
+			return mi;
+		}
+
+		public static Image ToImage(byte[] data) {
+			try {
+				return Image.FromStream(new MemoryStream(data));
+			} catch {
+				MessageBox.Show("Not convert byte to image", "Image error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
+		}
+	}
+	#endregion
+
 	public partial class DAL {
 		public DataBindingList<DbDataRecord> dbDataRecords;
 		private string sConnStr = ConfigurationManager.ConnectionStrings["HRBaseConnectionString"].ConnectionString;
@@ -84,6 +133,12 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			return true;
 		}
 
+		public bool Refresh() {
+			dbDataRecords.Clear();
+			GetEmploees();
+			return true;
+		}
+
 		public bool GetEmploees() {
 			if (GetConnectionState() == ConnectionState.Open) {
 				NpgsqlDataReader rdr = null;
@@ -107,24 +162,35 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			string login,
 			string pswd) {
 			if (GetConnectionState() == ConnectionState.Open) {
-				NpgsqlCommand cmd = new NpgsqlCommand("insertemployee", this.conn);
-				cmd.CommandType = CommandType.StoredProcedure;
+				NpgsqlCommand cmd = new NpgsqlCommand("call insertemployee( @fname, @lname, @sname, @pos, @birstday, @startorder, @endorder, @photo, @login, @pswd)", this.conn);
+				//cmd.CommandType = CommandType.StoredProcedure;
 				cmd.Parameters.Add("@fname", NpgsqlTypes.NpgsqlDbType.Varchar).Value = fname;
+				cmd.Parameters["@fname"].IsNullable = false;
 				cmd.Parameters.Add("@lname", NpgsqlTypes.NpgsqlDbType.Varchar).Value = lname;
-				cmd.Parameters.Add("@sname", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sname.Length > 0 ? sname : null;
+				cmd.Parameters["@lname"].IsNullable = false;
+				cmd.Parameters.Add("@sname", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sname;
+				cmd.Parameters["@sname"].IsNullable = true;
 				cmd.Parameters.Add("@pos", NpgsqlTypes.NpgsqlDbType.Varchar).Value = position;
+				cmd.Parameters["@pos"].IsNullable = true;
 				cmd.Parameters.Add("@birstday", NpgsqlTypes.NpgsqlDbType.Date).Value = birstday;
+				cmd.Parameters["@birstday"].IsNullable = true;
 				cmd.Parameters.Add("@startorder", NpgsqlTypes.NpgsqlDbType.Varchar).Value = startorder;
+				cmd.Parameters["@startorder"].IsNullable = true;
 				cmd.Parameters.Add("@endorder", NpgsqlTypes.NpgsqlDbType.Varchar).Value = endorder;
-				cmd.Parameters.Add("@photo", NpgsqlTypes.NpgsqlDbType.Bytea).Value =  System.IO.File.ReadAllBytes(photo);
+				cmd.Parameters["@endorder"].IsNullable = true;
+				cmd.Parameters.Add("@photo", NpgsqlTypes.NpgsqlDbType.Bytea).Value = (photo!=""?Photo.Resize(photo, 150, 170):null);
+				cmd.Parameters["@photo"].IsNullable = true;
 				cmd.Parameters.Add("@login", NpgsqlTypes.NpgsqlDbType.Varchar).Value = login;
+				cmd.Parameters["@login"].IsNullable = false;
 				cmd.Parameters.Add("@pswd", NpgsqlTypes.NpgsqlDbType.Varchar).Value = pswd;
+				cmd.Parameters["@pswd"].IsNullable = false;
 				cmd.ExecuteNonQuery();
-
+				Refresh();
 				return true;
 			}else {
 				return false;
 			}
 		}
+
 	}
 }

@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			if (dal.ConnectionOpen()) {
 				dal.GetEmploees();
 				dgv_emploeers.DataSource = dal.dbDataRecords;
+
 			}
 			this.Text = $"HR manager connection {dal.GetConnectionState()}";
 		}
@@ -43,7 +45,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			tb_position.Text = dgv_emploeers.Rows[e.RowIndex].Cells["position"].Value.ToString();
 			tb_startorder.Text = dgv_emploeers.Rows[e.RowIndex].Cells["startorder"].Value.ToString();
 			tb_endorder.Text = dgv_emploeers.Rows[e.RowIndex].Cells["endorder"].Value.ToString();
-			pb_Photo.Image = dgv_emploeers.Rows[e.RowIndex].Cells["photo"]?.Value as Image;
+			pb_Photo.Image = Photo.Resize(Photo.ToImage(dgv_emploeers.Rows[e.RowIndex].Cells["photo"]?.Value as byte[]),105,124);
 		}
 
 		private void dgv_emploeers_DataSourceChanged(object sender, EventArgs e) {
@@ -86,5 +88,6 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 		public void Update(object ob) {
 			dal = (DAL)ob;
 		}
+
 	}
 }

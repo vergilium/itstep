@@ -25,24 +25,24 @@
 		private void InitializeComponent() {
 			this.dgv_emploeers = new System.Windows.Forms.DataGridView();
 			this.gb_Account = new System.Windows.Forms.GroupBox();
+			this.tb_endorder = new System.Windows.Forms.TextBox();
+			this.lb_endorder = new System.Windows.Forms.Label();
+			this.tb_startorder = new System.Windows.Forms.TextBox();
+			this.lb_startorder = new System.Windows.Forms.Label();
+			this.tb_position = new System.Windows.Forms.TextBox();
+			this.lb_position = new System.Windows.Forms.Label();
+			this.tb_dateborn = new System.Windows.Forms.TextBox();
 			this.lb_born = new System.Windows.Forms.Label();
 			this.pb_Photo = new System.Windows.Forms.PictureBox();
 			this.lb_ID = new System.Windows.Forms.Label();
 			this.tb_id = new System.Windows.Forms.TextBox();
-			this.tb_dateborn = new System.Windows.Forms.TextBox();
-			this.tb_position = new System.Windows.Forms.TextBox();
-			this.lb_position = new System.Windows.Forms.Label();
-			this.tb_startorder = new System.Windows.Forms.TextBox();
-			this.lb_startorder = new System.Windows.Forms.Label();
-			this.tb_endorder = new System.Windows.Forms.TextBox();
-			this.lb_endorder = new System.Windows.Forms.Label();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newEmploeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_emploeers)).BeginInit();
 			this.gb_Account.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pb_Photo)).BeginInit();
@@ -86,6 +86,65 @@
 			this.gb_Account.TabStop = false;
 			this.gb_Account.Text = "Account";
 			// 
+			// tb_endorder
+			// 
+			this.tb_endorder.Location = new System.Drawing.Point(74, 123);
+			this.tb_endorder.Name = "tb_endorder";
+			this.tb_endorder.ReadOnly = true;
+			this.tb_endorder.Size = new System.Drawing.Size(245, 20);
+			this.tb_endorder.TabIndex = 12;
+			// 
+			// lb_endorder
+			// 
+			this.lb_endorder.AutoSize = true;
+			this.lb_endorder.Location = new System.Drawing.Point(7, 126);
+			this.lb_endorder.Name = "lb_endorder";
+			this.lb_endorder.Size = new System.Drawing.Size(55, 13);
+			this.lb_endorder.TabIndex = 11;
+			this.lb_endorder.Text = "End Order";
+			// 
+			// tb_startorder
+			// 
+			this.tb_startorder.Location = new System.Drawing.Point(74, 97);
+			this.tb_startorder.Name = "tb_startorder";
+			this.tb_startorder.ReadOnly = true;
+			this.tb_startorder.Size = new System.Drawing.Size(245, 20);
+			this.tb_startorder.TabIndex = 10;
+			// 
+			// lb_startorder
+			// 
+			this.lb_startorder.AutoSize = true;
+			this.lb_startorder.Location = new System.Drawing.Point(7, 100);
+			this.lb_startorder.Name = "lb_startorder";
+			this.lb_startorder.Size = new System.Drawing.Size(49, 13);
+			this.lb_startorder.TabIndex = 9;
+			this.lb_startorder.Text = "St. Order";
+			// 
+			// tb_position
+			// 
+			this.tb_position.Location = new System.Drawing.Point(74, 71);
+			this.tb_position.Name = "tb_position";
+			this.tb_position.ReadOnly = true;
+			this.tb_position.Size = new System.Drawing.Size(245, 20);
+			this.tb_position.TabIndex = 8;
+			// 
+			// lb_position
+			// 
+			this.lb_position.AutoSize = true;
+			this.lb_position.Location = new System.Drawing.Point(7, 74);
+			this.lb_position.Name = "lb_position";
+			this.lb_position.Size = new System.Drawing.Size(44, 13);
+			this.lb_position.TabIndex = 7;
+			this.lb_position.Text = "Position";
+			// 
+			// tb_dateborn
+			// 
+			this.tb_dateborn.Location = new System.Drawing.Point(74, 45);
+			this.tb_dateborn.Name = "tb_dateborn";
+			this.tb_dateborn.ReadOnly = true;
+			this.tb_dateborn.Size = new System.Drawing.Size(245, 20);
+			this.tb_dateborn.TabIndex = 6;
+			// 
 			// lb_born
 			// 
 			this.lb_born.AutoSize = true;
@@ -121,65 +180,6 @@
 			this.tb_id.Size = new System.Drawing.Size(245, 20);
 			this.tb_id.TabIndex = 0;
 			// 
-			// tb_dateborn
-			// 
-			this.tb_dateborn.Location = new System.Drawing.Point(74, 45);
-			this.tb_dateborn.Name = "tb_dateborn";
-			this.tb_dateborn.ReadOnly = true;
-			this.tb_dateborn.Size = new System.Drawing.Size(245, 20);
-			this.tb_dateborn.TabIndex = 6;
-			// 
-			// tb_position
-			// 
-			this.tb_position.Location = new System.Drawing.Point(74, 71);
-			this.tb_position.Name = "tb_position";
-			this.tb_position.ReadOnly = true;
-			this.tb_position.Size = new System.Drawing.Size(245, 20);
-			this.tb_position.TabIndex = 8;
-			// 
-			// lb_position
-			// 
-			this.lb_position.AutoSize = true;
-			this.lb_position.Location = new System.Drawing.Point(7, 74);
-			this.lb_position.Name = "lb_position";
-			this.lb_position.Size = new System.Drawing.Size(44, 13);
-			this.lb_position.TabIndex = 7;
-			this.lb_position.Text = "Position";
-			// 
-			// tb_startorder
-			// 
-			this.tb_startorder.Location = new System.Drawing.Point(74, 97);
-			this.tb_startorder.Name = "tb_startorder";
-			this.tb_startorder.ReadOnly = true;
-			this.tb_startorder.Size = new System.Drawing.Size(245, 20);
-			this.tb_startorder.TabIndex = 10;
-			// 
-			// lb_startorder
-			// 
-			this.lb_startorder.AutoSize = true;
-			this.lb_startorder.Location = new System.Drawing.Point(7, 100);
-			this.lb_startorder.Name = "lb_startorder";
-			this.lb_startorder.Size = new System.Drawing.Size(49, 13);
-			this.lb_startorder.TabIndex = 9;
-			this.lb_startorder.Text = "St. Order";
-			// 
-			// tb_endorder
-			// 
-			this.tb_endorder.Location = new System.Drawing.Point(74, 123);
-			this.tb_endorder.Name = "tb_endorder";
-			this.tb_endorder.ReadOnly = true;
-			this.tb_endorder.Size = new System.Drawing.Size(245, 20);
-			this.tb_endorder.TabIndex = 12;
-			// 
-			// lb_endorder
-			// 
-			this.lb_endorder.AutoSize = true;
-			this.lb_endorder.Location = new System.Drawing.Point(7, 126);
-			this.lb_endorder.Name = "lb_endorder";
-			this.lb_endorder.Size = new System.Drawing.Size(55, 13);
-			this.lb_endorder.TabIndex = 11;
-			this.lb_endorder.Text = "End Order";
-			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
@@ -212,29 +212,29 @@
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.connectToolStripMenuItem.Text = "&Connect";
 			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.disconnectToolStripMenuItem.Text = "&Disconnect";
 			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
-			// 
-			// exitToolStripMenuItem
-			// 
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.exitToolStripMenuItem.Text = "E&xit";
 			// 
 			// newEmploeeToolStripMenuItem
 			// 
 			this.newEmploeeToolStripMenuItem.Name = "newEmploeeToolStripMenuItem";
-			this.newEmploeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.newEmploeeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.newEmploeeToolStripMenuItem.Text = "&New emploee";
 			this.newEmploeeToolStripMenuItem.Click += new System.EventHandler(this.newEmploeeToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.exitToolStripMenuItem.Text = "E&xit";
 			// 
 			// MainForm
 			// 
