@@ -65,8 +65,28 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 		}
 
 		private void newEmploeeToolStripMenuItem_Click(object sender, EventArgs e) {
+			tsb_add_Click(sender, e);
+		}
+
+		private void tsb_add_Click(object sender, EventArgs e) {
 			Form nemp = new NewEmploee(IOdata);
 			nemp.ShowDialog();
+		}
+		private void tsb_edit_Click(object sender, EventArgs e) {
+			Form nemp = new NewEmploee(IOdata, dgv_emploeers.CurrentRow.Index);
+			nemp.ShowDialog();
+		}
+
+		private void tsb_remove_Click(object sender, EventArgs e) {
+			if(tb_id.Text != "") {
+				if (MessageBox.Show($"Delete employee {tb_id.Text}", "Info",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Information) == DialogResult.Yes) {
+					dal.RemEmploee(Guid.Parse(tb_id.Text));
+				} else {
+					return;
+				}
+			}	
 		}
 
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e) {

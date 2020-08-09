@@ -192,5 +192,16 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			}
 		}
 
+		public bool RemEmploee(Guid id) {
+			if (GetConnectionState() == ConnectionState.Open) {
+				NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM employees WHERE id = @id", this.conn);
+				cmd.Parameters.Add("@id", NpgsqlTypes.NpgsqlDbType.Uuid).Value = id;
+				cmd.ExecuteNonQuery();
+				Refresh();
+				return true;
+			} else 
+			return false;
+		}
+
 	}
 }
