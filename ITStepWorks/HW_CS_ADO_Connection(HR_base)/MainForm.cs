@@ -1,16 +1,5 @@
-﻿using Npgsql;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
+﻿using System;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HW_CS_ADO_Connection_HR_base_ {
@@ -45,7 +34,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			tb_position.Text = dgv_emploeers.Rows[e.RowIndex].Cells["position"].Value.ToString();
 			tb_startorder.Text = dgv_emploeers.Rows[e.RowIndex].Cells["startorder"].Value.ToString();
 			tb_endorder.Text = dgv_emploeers.Rows[e.RowIndex].Cells["endorder"].Value.ToString();
-			pb_Photo.Image = Photo.Resize(Photo.ToImage(dgv_emploeers.Rows[e.RowIndex].Cells["photo"]?.Value as byte[]),105,124);
+			pb_Photo.Image = Photo.Resize(Photo.ToImage(dgv_emploeers.Rows[e.RowIndex].Cells["photo"]?.Value as byte[]), 105, 124);
 		}
 
 		private void dgv_emploeers_DataSourceChanged(object sender, EventArgs e) {
@@ -78,7 +67,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 		}
 
 		private void tsb_remove_Click(object sender, EventArgs e) {
-			if(tb_id.Text != "") {
+			if (tb_id.Text != "") {
 				if (MessageBox.Show($"Delete employee {tb_id.Text}", "Info",
 					MessageBoxButtons.YesNo,
 					MessageBoxIcon.Information) == DialogResult.Yes) {
@@ -86,7 +75,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				} else {
 					return;
 				}
-			}	
+			}
 		}
 
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e) {

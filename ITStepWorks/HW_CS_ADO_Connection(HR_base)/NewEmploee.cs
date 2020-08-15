@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HW_CS_ADO_Connection_HR_base_ {
@@ -38,7 +31,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 		}
 
 		private void pb_photo_Click(object sender, EventArgs e) {
-			if(ofd_OpenPhoto.ShowDialog() == DialogResult.OK) {
+			if (ofd_OpenPhoto.ShowDialog() == DialogResult.OK) {
 				pb_photo.Image = new Bitmap(ofd_OpenPhoto.FileName);
 			}
 		}
@@ -47,21 +40,21 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 			if (set_index >= 0) {
 				dal.RemEmploee(dal.dbDataRecords[set_index].GetGuid(0));
 			}
-				dal.NewEmploee(tb_firstname.Text, tb_lname.Text,
-					tb_secondname.Text,
-					tb_position.Text,
-					dtp_dateborn.Value,
-					tb_startorder.Text,
-					tb_endorder.Text,
-					ofd_OpenPhoto.FileName,
-					tb_login.Text,
-					tb_passwd.Text);
+			dal.NewEmploee(tb_firstname.Text, tb_lname.Text,
+				tb_secondname.Text,
+				tb_position.Text,
+				dtp_dateborn.Value,
+				tb_startorder.Text,
+				tb_endorder.Text,
+				ofd_OpenPhoto.FileName,
+				tb_login.Text,
+				tb_passwd.Text);
 			btn_Clear_Click(sender, e);
 		}
 
 		private void NewEmploee_Load(object sender, EventArgs e) {
 			IOdata.NotifyObservers();
-			if(set_index >= 0) {
+			if (set_index >= 0) {
 				tb_firstname.Text = dal.dbDataRecords[set_index].GetString(1);
 				tb_lname.Text = dal.dbDataRecords[set_index].GetString(2);
 				tb_secondname.Text = dal.dbDataRecords[set_index].GetString(3);

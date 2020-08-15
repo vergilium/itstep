@@ -55,8 +55,8 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 
 	#region Image Photo class
 	public static class Photo {
-		
-		public static byte[] Resize(string path, int maxWidth=100, int maxHeight=100) {
+
+		public static byte[] Resize(string path, int maxWidth = 100, int maxHeight = 100) {
 			try {
 				Image img = Image.FromFile(path);
 				double ratioX = (double)maxWidth / img.Width;
@@ -76,7 +76,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				BinaryReader br = new BinaryReader(ms);
 				byte[] buf = br.ReadBytes((int)ms.Length);
 				return buf;
-			} catch(Exception ex) {
+			} catch (Exception ex) {
 				MessageBox.Show(ex.Message, "Image error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
@@ -110,7 +110,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 		private string sConnStr = ConfigurationManager.ConnectionStrings["HRBaseConnectionString"].ConnectionString;
 		private NpgsqlConnection conn;
 
-		public ConnectionState GetConnectionState() => conn != null?conn.State:ConnectionState.Closed;
+		public ConnectionState GetConnectionState() => conn != null ? conn.State : ConnectionState.Closed;
 		public DAL() {
 			dbdata = new List<IObserver>();
 			dbDataRecords = new DataBindingList<DbDataRecord>();
@@ -124,11 +124,11 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				MessageBox.Show(ex.Message.ToString(), "Error connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			
+
 		}
 
 		public bool ConnectionClose() {
-			if(conn.State == ConnectionState.Open)
+			if (conn.State == ConnectionState.Open)
 				conn.Dispose();
 			return true;
 		}
@@ -178,7 +178,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				cmd.Parameters["@startorder"].IsNullable = true;
 				cmd.Parameters.Add("@endorder", NpgsqlTypes.NpgsqlDbType.Varchar).Value = endorder;
 				cmd.Parameters["@endorder"].IsNullable = true;
-				cmd.Parameters.Add("@photo", NpgsqlTypes.NpgsqlDbType.Bytea).Value = (photo!=""?Photo.Resize(photo, 150, 170):null);
+				cmd.Parameters.Add("@photo", NpgsqlTypes.NpgsqlDbType.Bytea).Value = (photo != "" ? Photo.Resize(photo, 150, 170) : null);
 				cmd.Parameters["@photo"].IsNullable = true;
 				cmd.Parameters.Add("@login", NpgsqlTypes.NpgsqlDbType.Varchar).Value = login;
 				cmd.Parameters["@login"].IsNullable = false;
@@ -187,7 +187,7 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				cmd.ExecuteNonQuery();
 				Refresh();
 				return true;
-			}else {
+			} else {
 				return false;
 			}
 		}
@@ -199,8 +199,8 @@ namespace HW_CS_ADO_Connection_HR_base_ {
 				cmd.ExecuteNonQuery();
 				Refresh();
 				return true;
-			} else 
-			return false;
+			} else
+				return false;
 		}
 
 	}
