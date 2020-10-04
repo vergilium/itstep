@@ -1,0 +1,10 @@
+LIBRARY      "MyUnsafeLibrary"
+
+EXPORTS
+	Test         @1
+	Foo          @2
+	demo         @3
+
+    ; Explicit exports can go here
+
+
