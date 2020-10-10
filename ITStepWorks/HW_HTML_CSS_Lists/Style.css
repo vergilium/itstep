@@ -1,0 +1,112 @@
+﻿body {
+    background-color: honeydew;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*#region task_1 */
+.group {
+    list-style-type: none;
+    list-style-image: url('./img/ball.png');
+    font-family: Arial 14pt;
+    font-weight: 800;
+}
+
+    .group li {
+        list-style-type: none;
+        list-style-image: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+    }
+
+#poland {
+    list-style-image: url('./img/flags/poland.png');
+}
+
+#russian {
+    list-style-image: url('./img/flags/russian.png');
+}
+
+#czech {
+    list-style-image: url('./img/flags/czech.png');
+}
+
+#greece {
+    list-style-image: url('./img/flags/greece.png');
+}
+
+#germany {
+    list-style-image: url('./img/flags/germany.png');
+}
+
+#niderlands {
+    list-style-image: url('./img/flags/niderlands.png');
+}
+
+#portugalia {
+    list-style-image: url('./img/flags/portugalia.png');
+}
+
+#dania {
+    list-style-image: url('./img/flags/dania.png');
+}
+
+#spain {
+    list-style-image: url('./img/flags/spain.png');
+}
+
+#italy {
+    list-style-image: url('./img/flags/italy.png');
+}
+
+#croatia {
+    list-style-image: url('./img/flags/croatia.png');
+}
+
+#ireland {
+    list-style-image: url('./img/flags/ireland.png');
+}
+
+#ukraine {
+    list-style-image: url('./img/flags/ukraine.png');
+}
+
+#england {
+    list-style-image: url('./img/flags/england.png');
+}
+
+#france {
+    list-style-image: url('./img/flags/france.png');
+}
+
+#sweden {
+    list-style-image: url('./img/flags/sweden.png');
+}
+/*#endregion */
+
+/*#region task_2 */
+.task_2 {
+    color: green;
+}
+
+    .task_2 ul {
+        list-style-type: circle;
+        color: black;
+    }
+
+#upperred {
+    color: red;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+/*#endregion */
+
+/*#region task 3 */
+.task_3 ul {
+    list-style-type: disc;
+    margin-left: -1em;
+}
+
+.task_3 ul ul {
+    list-style-type: '➨';
+    padding-left: inherit 1em;
+}
+/*#endregion */
