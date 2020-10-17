@@ -8,6 +8,6 @@ namespace DB.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column ("id")]
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

@@ -14,9 +14,9 @@ namespace DB.Domain
         Task<List<T>> ToListAsync();
         Task<int> AddItemAsync(T item);
         Task<int> AddItemsAsync(IEnumerable<T> items);
-        Task<T> GetItemAsync(long id);
+        Task<T> GetItemAsync(Guid id);
         Task<bool> ChangeItemAsync(T item);
-        Task<bool> DeleteItemAsync(long id);
+        Task<bool> DeleteItemAsync(Guid id);
         Task<int> SaveChangesAsync();
         Task<bool> UpdateItemAsync(T item);
     }

@@ -37,14 +37,14 @@ namespace DB.Repositories
             return await SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> DeleteItemAsync(long id){
+        public async Task<bool> DeleteItemAsync(Guid id){
             T item = await _context.Set<T>().FindAsync(id);
             if (item == null) return false;
             _context.Set<T>().Remove(item);
             return await SaveChangesAsync() > 0;
         }
 
-        public async Task<T> GetItemAsync(long id){
+        public async Task<T> GetItemAsync(Guid id){
             return await _context.Set<T>().FindAsync(id);
         }
 

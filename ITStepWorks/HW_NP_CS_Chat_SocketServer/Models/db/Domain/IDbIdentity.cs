@@ -9,6 +9,6 @@ namespace DB.Domain
     public interface IDbIdentity
     {
         [Key]
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

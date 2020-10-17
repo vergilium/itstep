@@ -20,13 +20,13 @@ namespace DB.Entities{
 
 		public User sender { get; set; }
 
-		[Column("SenderId")]
-		public long sender_id { get; set; }
+		[Column("Sender_Id")]
+		public Guid sender_id { get; set; }
 
 		public User receiver { get; set; }
 
-		[Column("ReceiverId")]
-		public long receiver_id { get; set; }
+		[Column("Receiver_Id")]
+		public Guid receiver_id { get; set; }
 
 		[Column("SendTime")]
 		public DateTime sendTime { get; set; }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SocketServer.Commands;
+using SocketServer.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -38,16 +41,45 @@ namespace SocketServer {
 			} catch (Exception ex) {
 				Console.WriteLine(ex.Message);
 			}
-			while (true);
+			Console.ReadKey();
 		}
 
 		private static void clientCallback(IAsyncResult ar) {
 			TcpListener listener = ar.AsyncState as TcpListener;
 			TcpClient client = listener.EndAcceptTcpClient(ar);
+			listener.BeginAcceptTcpClient(clientCallback, listener);
+			try {
+				StreamReader reader = new StreamReader(client.GetStream(), Encoding.UTF8);
+				StreamWriter writer = new StreamWriter(client.GetStream(), Encoding.UTF8) { AutoFlush = true };
 
-			StreamReader reader = new StreamReader(client.GetStream(), Encoding.UTF8);
-			StreamWriter writer = new StreamWriter(client.GetStream(), Encoding.UTF8);
+				MSG message = null;
 
+				IPAddress remoteAddr = (client.Client.RemoteEndPoint as IPEndPoint).Address;
+				Console.WriteLine($"Connect from {remoteAddr}");
+
+				do {
+					message = JsonConvert.DeserializeObject<MSG>(reader.ReadLine());
+					switch (message.command) {
+						case "Autorization": break;
+						case "Register": RegistrationCommand.GoRegistration(message).Wait(); break;
+						case "SendMessage": break;
+						case "Disconnect": break;
+						default: break;
+					}
+
+				}
+				while (message.command != "Disconnect");
+
+			}
+#pragma warning disable CS0168 // Variable is declared but never used
+				catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+            {
+
+            } finally {
+				client.Close();
+			}
+			
 
 		}
 	}

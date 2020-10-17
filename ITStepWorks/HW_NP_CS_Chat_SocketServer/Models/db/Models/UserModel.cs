@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DB.Models {
 	public class UserModel {
-		public long id { get; set; }
+		public Guid id { get; set; }
 		public string login { get; set; }
 		public string firstName { get; set; }
 		public string lastName { get; set; }
@@ -31,18 +32,20 @@ namespace DB.Models {
 		}
 
 		public static implicit operator UserVM(UserModel model) {
-			return new UserVM {
+			return new UserVM
+			{
 				id = model.id,
 				login = model.login,
 				dateLastVisit = model.dateLastVisit,
 				messages = model.messages
-					.Select(m => new MessageVM {
+					.Select(m => new MessageVM
+					{
 						id = m.id,
 						text = m.text,
 						sendTime = m.sendTime,
 						viewTime = m.viewTime
 					}).ToList()
-			}
+			};
 		}
 
 		public static IEnumerable<UserModel> GetAllUsers() {
@@ -66,6 +69,19 @@ namespace DB.Models {
 				.Include(u => u.messages)
 				.Select(u => (UserVM) new UserModel(u))
 				.ToList();
+		}
+
+		public static async Task<int> PutUser(User usr) {
+			return await Unit.UserRepository.AddItemAsync( usr
+			//new User {
+			//Id = Guid.NewGuid(),
+			//login = usr.login,
+			//firstName = usr.firstName,
+			//lastName = usr.lastName,
+			//token = null,
+			//dateReg = DateTime.Now,
+			//dateLastVisit = DateTime.Now}
+			);
 		}
 	}
 

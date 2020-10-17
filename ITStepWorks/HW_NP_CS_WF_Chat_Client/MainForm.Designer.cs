@@ -1,5 +1,5 @@
 ﻿namespace HW_NP_CS_WF_Chat_Client {
-	partial class Form1 {
+	partial class MainForm {
 		/// <summary>
 		///  Required designer variable.
 		/// </summary>

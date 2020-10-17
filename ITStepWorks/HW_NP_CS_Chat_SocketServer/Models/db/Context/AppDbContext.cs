@@ -1,5 +1,6 @@
 ﻿using DB.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace DB.Context {
     public class AppDbContext : DbContext

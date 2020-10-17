@@ -8,11 +8,11 @@ using SocketServer.Models;
 
 namespace DB.Models {
 	public class MessageModel {
-		public long id { get; set; }
+		public Guid id { get; set; }
 		public string command { get; set; }
 		public string text { get; set; }
-		public long sender { get; set; }
-		public long receiver { get; set; }
+		public Guid sender { get; set; }
+		public Guid receiver { get; set; }
 		public DateTime sendTime { get; set; }
 		public DateTime viewTime { get; set; }
 

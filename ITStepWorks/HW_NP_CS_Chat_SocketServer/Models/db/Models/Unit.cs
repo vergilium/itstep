@@ -16,7 +16,7 @@ namespace DB.Models
                 new DbContextOptionsBuilder<AppDbContext>()
                     .UseSqlServer(new SqlConnectionStringBuilder
                     {
-                        DataSource = "127.0.0.1",
+                        DataSource = @"localhost\SQLEXPRESS",
                         InitialCatalog = "Chat",
                         IntegratedSecurity = true
                     }.ConnectionString)
