@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HW_NP_CS_WF_Chat_Client {
-	public partial class RegistrationForm : Form {
-		public RegistrationForm() {
+namespace HW_NP_CS_Socket_chat_Client {
+	public partial class MainForm : Form {
+		public MainForm() {
 			InitializeComponent();
 		}
 	}
