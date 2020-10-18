@@ -33,6 +33,7 @@
 			this.labelConfirmPassword = new System.Windows.Forms.Label();
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_Register = new System.Windows.Forms.Button();
+			this.label_err = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -52,7 +53,11 @@
 			this.tb_Login.Name = "tb_Login";
 			this.tb_Login.Size = new System.Drawing.Size(260, 20);
 			this.tb_Login.TabIndex = 1;
+			this.tb_Login.Tag = "Enter your Login";
 			this.tb_Login.Text = "Enter your Login";
+			this.tb_Login.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_MouseClick);
+			this.tb_Login.Enter += new System.EventHandler(this.tb_changed);
+			this.tb_Login.LostFocus += new System.EventHandler(this.tb_FocusFalse);
 			// 
 			// tb_FName
 			// 
@@ -60,7 +65,11 @@
 			this.tb_FName.Name = "tb_FName";
 			this.tb_FName.Size = new System.Drawing.Size(260, 20);
 			this.tb_FName.TabIndex = 2;
+			this.tb_FName.Tag = "Enter your first name";
 			this.tb_FName.Text = "Enter your first name";
+			this.tb_FName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_MouseClick);
+			this.tb_FName.Enter += new System.EventHandler(this.tb_changed);
+			this.tb_FName.LostFocus += new System.EventHandler(this.tb_FocusFalse);
 			// 
 			// tb_LName
 			// 
@@ -68,7 +77,11 @@
 			this.tb_LName.Name = "tb_LName";
 			this.tb_LName.Size = new System.Drawing.Size(260, 20);
 			this.tb_LName.TabIndex = 3;
+			this.tb_LName.Tag = "Enter your last name";
 			this.tb_LName.Text = "Enter your last name";
+			this.tb_LName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_MouseClick);
+			this.tb_LName.Enter += new System.EventHandler(this.tb_changed);
+			this.tb_LName.LostFocus += new System.EventHandler(this.tb_FocusFalse);
 			// 
 			// tb_Pswd
 			// 
@@ -78,7 +91,7 @@
 			this.tb_Pswd.Size = new System.Drawing.Size(260, 20);
 			this.tb_Pswd.TabIndex = 4;
 			this.tb_Pswd.UseSystemPasswordChar = true;
-			this.tb_Pswd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			this.tb_Pswd.Enter += new System.EventHandler(this.tb_changed);
 			// 
 			// tb_PswdConfirm
 			// 
@@ -88,6 +101,7 @@
 			this.tb_PswdConfirm.Size = new System.Drawing.Size(260, 20);
 			this.tb_PswdConfirm.TabIndex = 5;
 			this.tb_PswdConfirm.UseSystemPasswordChar = true;
+			this.tb_PswdConfirm.Enter += new System.EventHandler(this.tb_changed);
 			// 
 			// labelPassword
 			// 
@@ -120,6 +134,7 @@
 			this.btn_Cancel.TabIndex = 8;
 			this.btn_Cancel.Text = "Cancel";
 			this.btn_Cancel.UseVisualStyleBackColor = true;
+			this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
 			// 
 			// btn_Register
 			// 
@@ -133,6 +148,15 @@
 			this.btn_Register.TabIndex = 9;
 			this.btn_Register.Text = "Register";
 			this.btn_Register.UseVisualStyleBackColor = true;
+			this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
+			// 
+			// label_err
+			// 
+			this.label_err.AutoSize = true;
+			this.label_err.Location = new System.Drawing.Point(12, 320);
+			this.label_err.Name = "label_err";
+			this.label_err.Size = new System.Drawing.Size(0, 13);
+			this.label_err.TabIndex = 10;
 			// 
 			// RegisterForm
 			// 
@@ -141,6 +165,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_Cancel;
 			this.ClientSize = new System.Drawing.Size(284, 411);
+			this.Controls.Add(this.label_err);
 			this.Controls.Add(this.btn_Register);
 			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.labelConfirmPassword);
@@ -176,5 +201,6 @@
 		private System.Windows.Forms.Label labelConfirmPassword;
 		private System.Windows.Forms.Button btn_Cancel;
 		private System.Windows.Forms.Button btn_Register;
+		private System.Windows.Forms.Label label_err;
 	}
 }
