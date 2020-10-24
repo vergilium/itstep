@@ -34,6 +34,8 @@
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_Register = new System.Windows.Forms.Button();
 			this.label_err = new System.Windows.Forms.Label();
+			this.lb_server_addr = new System.Windows.Forms.Label();
+			this.mtb_ServerAddr = new System.Windows.Forms.MaskedTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -49,7 +51,7 @@
 			// 
 			// tb_Login
 			// 
-			this.tb_Login.Location = new System.Drawing.Point(12, 137);
+			this.tb_Login.Location = new System.Drawing.Point(12, 115);
 			this.tb_Login.Name = "tb_Login";
 			this.tb_Login.Size = new System.Drawing.Size(260, 20);
 			this.tb_Login.TabIndex = 1;
@@ -61,7 +63,7 @@
 			// 
 			// tb_FName
 			// 
-			this.tb_FName.Location = new System.Drawing.Point(12, 163);
+			this.tb_FName.Location = new System.Drawing.Point(12, 141);
 			this.tb_FName.Name = "tb_FName";
 			this.tb_FName.Size = new System.Drawing.Size(260, 20);
 			this.tb_FName.TabIndex = 2;
@@ -73,7 +75,7 @@
 			// 
 			// tb_LName
 			// 
-			this.tb_LName.Location = new System.Drawing.Point(12, 189);
+			this.tb_LName.Location = new System.Drawing.Point(12, 167);
 			this.tb_LName.Name = "tb_LName";
 			this.tb_LName.Size = new System.Drawing.Size(260, 20);
 			this.tb_LName.TabIndex = 3;
@@ -85,7 +87,7 @@
 			// 
 			// tb_Pswd
 			// 
-			this.tb_Pswd.Location = new System.Drawing.Point(12, 237);
+			this.tb_Pswd.Location = new System.Drawing.Point(12, 252);
 			this.tb_Pswd.Name = "tb_Pswd";
 			this.tb_Pswd.PasswordChar = '*';
 			this.tb_Pswd.Size = new System.Drawing.Size(260, 20);
@@ -95,7 +97,7 @@
 			// 
 			// tb_PswdConfirm
 			// 
-			this.tb_PswdConfirm.Location = new System.Drawing.Point(12, 281);
+			this.tb_PswdConfirm.Location = new System.Drawing.Point(12, 291);
 			this.tb_PswdConfirm.Name = "tb_PswdConfirm";
 			this.tb_PswdConfirm.PasswordChar = '*';
 			this.tb_PswdConfirm.Size = new System.Drawing.Size(260, 20);
@@ -106,7 +108,7 @@
 			// labelPassword
 			// 
 			this.labelPassword.AutoSize = true;
-			this.labelPassword.Location = new System.Drawing.Point(12, 221);
+			this.labelPassword.Location = new System.Drawing.Point(12, 236);
 			this.labelPassword.Name = "labelPassword";
 			this.labelPassword.Size = new System.Drawing.Size(80, 13);
 			this.labelPassword.TabIndex = 6;
@@ -115,7 +117,7 @@
 			// labelConfirmPassword
 			// 
 			this.labelConfirmPassword.AutoSize = true;
-			this.labelConfirmPassword.Location = new System.Drawing.Point(12, 265);
+			this.labelConfirmPassword.Location = new System.Drawing.Point(12, 275);
 			this.labelConfirmPassword.Name = "labelConfirmPassword";
 			this.labelConfirmPassword.Size = new System.Drawing.Size(90, 13);
 			this.labelConfirmPassword.TabIndex = 7;
@@ -153,10 +155,29 @@
 			// label_err
 			// 
 			this.label_err.AutoSize = true;
-			this.label_err.Location = new System.Drawing.Point(12, 320);
+			this.label_err.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+			this.label_err.ForeColor = System.Drawing.Color.Red;
+			this.label_err.Location = new System.Drawing.Point(18, 327);
 			this.label_err.Name = "label_err";
-			this.label_err.Size = new System.Drawing.Size(0, 13);
+			this.label_err.Size = new System.Drawing.Size(0, 20);
 			this.label_err.TabIndex = 10;
+			// 
+			// lb_server_addr
+			// 
+			this.lb_server_addr.AutoSize = true;
+			this.lb_server_addr.Location = new System.Drawing.Point(12, 197);
+			this.lb_server_addr.Name = "lb_server_addr";
+			this.lb_server_addr.Size = new System.Drawing.Size(99, 13);
+			this.lb_server_addr.TabIndex = 12;
+			this.lb_server_addr.Text = "Enter server addres";
+			// 
+			// mtb_ServerAddr
+			// 
+			this.mtb_ServerAddr.Location = new System.Drawing.Point(12, 213);
+			this.mtb_ServerAddr.Mask = "###.###.###.###";
+			this.mtb_ServerAddr.Name = "mtb_ServerAddr";
+			this.mtb_ServerAddr.Size = new System.Drawing.Size(260, 20);
+			this.mtb_ServerAddr.TabIndex = 13;
 			// 
 			// RegisterForm
 			// 
@@ -165,6 +186,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btn_Cancel;
 			this.ClientSize = new System.Drawing.Size(284, 411);
+			this.Controls.Add(this.mtb_ServerAddr);
+			this.Controls.Add(this.lb_server_addr);
 			this.Controls.Add(this.label_err);
 			this.Controls.Add(this.btn_Register);
 			this.Controls.Add(this.btn_Cancel);
@@ -202,5 +225,7 @@
 		private System.Windows.Forms.Button btn_Cancel;
 		private System.Windows.Forms.Button btn_Register;
 		private System.Windows.Forms.Label label_err;
+		private System.Windows.Forms.Label lb_server_addr;
+		private System.Windows.Forms.MaskedTextBox mtb_ServerAddr;
 	}
 }

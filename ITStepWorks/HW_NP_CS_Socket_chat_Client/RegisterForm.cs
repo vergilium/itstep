@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,8 @@ namespace HW_NP_CS_Socket_chat_Client {
 		public RegisterForm() {
 			InitializeComponent();
 			btn_Register.Enabled = false;
+			//mtb_ServerAddr.Tag = IPAddress.Any;
 		}
-
-		
 
 		private void tb_changed(object sender, EventArgs e) {
 			foreach(TextBox item in this.Controls.OfType<TextBox>()) {
@@ -29,6 +29,12 @@ namespace HW_NP_CS_Socket_chat_Client {
 				label_err.Text = "Passwords not equal!!!";
 				return;
 			}
+			IPAddress ip;
+			if (!IPAddress.TryParse(mtb_ServerAddr.Text, out ip)) { 
+				label_err.Text = "Incorrect Server address";
+				return;
+			}
+			mtb_ServerAddr.Tag = ip;
 			label_err.Text = String.Empty;
 			btn_Register.Enabled = true;
 		}
@@ -38,14 +44,24 @@ namespace HW_NP_CS_Socket_chat_Client {
 		}
 
 		private void btn_Register_Click(object sender, EventArgs e) {
-			Registration register = new Registration {
-				login = tb_Login.Text,
-				firstName = tb_FName.Text,
-				lastName = tb_LName.Text,
-				password = tb_Pswd.Text
-			};
-			if (register.Register()) MessageBox.Show("Success!!!");
-			else MessageBox.Show("ERROR!!!");
+			try {
+				SocketClient client = new SocketClient(mtb_ServerAddr.Tag as IPAddress);
+				Registration register = new Registration {
+					login = tb_Login.Text,
+					firstName = tb_FName.Text,
+					lastName = tb_LName.Text,
+					password = tb_Pswd.Text,
+					server = mtb_ServerAddr.Tag.ToString()
+				};
+				byte[] json = register.Register();
+				Console.WriteLine(json);
+				client.Send(json);
+				if (json.Length > 0) {
+					MessageBox.Show("Success!!!"); 
+				} else MessageBox.Show("ERROR!!!");
+			} catch (Exception ex) {
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void tb_MouseClick(object sender, MouseEventArgs e) {

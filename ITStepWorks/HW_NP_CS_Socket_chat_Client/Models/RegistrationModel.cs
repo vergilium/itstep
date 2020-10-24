@@ -14,6 +14,7 @@ namespace HW_NP_CS_Socket_chat_Client.Models {
 		public string login { get; set; }
 		public string firstName { get; set; }
 		public string lastName { get; set; }
+		public string server { get; set; }
 		[JsonIgnore]
 		public string password { get; set; }
 		public string token { get; private set; }
@@ -33,21 +34,22 @@ namespace HW_NP_CS_Socket_chat_Client.Models {
 			}
 		}
 
-		public bool Register() {
+		public byte[] Register() {
+			byte[] json;
 			try {
 				if (CreateToken()) {
 
 					using (FileStream file = new FileStream(@"register", FileMode.Create, FileAccess.Write)) {
-						byte[] json = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this));
+						json = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this));
 						file.Write(json, 0, json.Length);
 					}	
-					return true;
+					return json;
 				} else
-					return false;
+					return new byte[0];
 #pragma warning disable CS0168 // Variable is declared but never used
 			} catch (Exception ex) {
 #pragma warning restore CS0168 // Variable is declared but never used
-				return false;
+				return new byte[0];
 			}
 		}
 	}

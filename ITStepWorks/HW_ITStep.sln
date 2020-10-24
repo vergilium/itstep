@@ -163,7 +163,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Example_HTML_CSS_Lists", "E
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "64039"
-		SlnRelativePath = "Example_HTML_CSS_Lists\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Example_HTML_CSS_Blocks", "Example_HTML_CSS_Blocks\", "{F1FCA408-2F4F-4697-A2D0-53EB6A3D42FC}"
@@ -184,7 +183,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Example_HTML_CSS_Blocks", "
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "64145"
-		SlnRelativePath = "Example_HTML_CSS_Blocks\"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW_SP", "HW_SP", "{D8A2799C-A864-45DE-BAA8-CF80A1F55AB4}"
@@ -211,7 +209,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HW_HTML_CSS_Lists", "HW_HTM
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "50784"
-		SlnRelativePath = "HW_HTML_CSS_Lists\"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW_NP", "HW_NP", "{393035A5-162D-40E9-8E5B-2307F478B84F}"
@@ -221,6 +218,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW_NP_CS_Chat_SocketServer", "HW_NP_CS_Chat_SocketServer\HW_NP_CS_Chat_SocketServer.csproj", "{D6088187-54EC-4E3A-836D-0D3006F9EC6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_NP_CS_Socket_chat_Client", "HW_NP_CS_Socket_chat_Client\HW_NP_CS_Socket_chat_Client.csproj", "{DA158CA3-C14A-425B-AB46-F20FF86B0D87}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D6088187-54EC-4E3A-836D-0D3006F9EC6D} = {D6088187-54EC-4E3A-836D-0D3006F9EC6D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

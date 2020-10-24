@@ -61,7 +61,7 @@ namespace SocketServer {
 					message = JsonConvert.DeserializeObject<MSG>(reader.ReadLine());
 					switch (message.command) {
 						case "Autorization": break;
-						case "Register": RegistrationCommand.GoRegistration(message).Wait(); break;
+						case "Registration": RegistrationCommand.GoRegistration(message).Wait(); break;
 						case "SendMessage": break;
 						case "Disconnect": break;
 						default: break;
