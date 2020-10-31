@@ -1,0 +1,115 @@
+html {
+    overflow-y: auto;
+    overflow-x: no-display;
+}
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.body-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 480px;
+    min-height: 350px;
+}
+
+.head {
+    height: 78px;
+    width: calc(100vw - 80px);
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+    border-bottom: 20px solid green;
+    background-color: black;
+    background-image: url(./img/face.jpg);
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+    margin-left: calc(100vw/4);
+}
+
+a {
+    color: white;
+    font-size: 8pt;
+
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu li:before{
+    content: "|";
+}
+
+#logo {
+    margin-top:0;
+    margin-left: 150px;
+    display: block;
+}
+
+
+.welcome {
+    width: 60px;
+    height: calc(100vh - 98px);
+    min-height: 330px;
+    display: block;
+    float: right;
+    border-left: 20px solid green;
+    background-image: url(./img/welcome_bg.jpg);
+    background-repeat: repeat-y;
+}
+
+.left-side {
+    height: calc(100vh - 196px);
+    width: 60px;
+    display: inline-block;
+    padding-top: 98px;
+    background-color: black;
+    background-image: url(./img/body.jpg);
+    background-repeat: no-repeat;
+    border-right: 20px solid green;
+    float:left;
+}
+
+.main {
+    width: calc(100vw - 80px);
+    height: calc(100vh - 118px);
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer {
+    height: 98px;
+    width: calc(100vw - 80px);
+    display: block;
+    padding-left: 80px;
+    background-color: black;
+    border-top: 20px solid green;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer h1{
+    height:48px;
+    display:flex;
+    align-items: flex-end;
+    margin-left:20px;
+}
+
+.footer .menu{
+    margin-left: 0;
+    padding:0;
+    margin-top:10px;
+}
