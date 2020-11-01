@@ -21,16 +21,21 @@ namespace DB.Entities {
 		[StringLength(32)]
 		public string lastName { get; set; }
 
-		[Column("Key")]
+		[Column("Token")]
 		[StringLength(128)]
 		public string token { get; set; }
 
+		[Column("Mail")]
+		[StringLength(50)]
+		public string mail { get; set; }
+
+		[Column("Password")]
+		[StringLength(256)]
+		public string pswd { get; set; }
+
 		[Column("DateRegistration")]
 		public DateTime dateReg { get; set; }
-
 		[Column("DateLastVisit")]
 		public DateTime dateLastVisit { get; set; }
-
-		public List<Message> messages { get; set; }
 	}
 }
