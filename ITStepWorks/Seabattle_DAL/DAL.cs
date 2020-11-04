@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Validation;
 
 namespace Seabattle {
 	public static partial class DAL {

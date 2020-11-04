@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.Validation;
 
 namespace DB.Repositories
 {
@@ -21,8 +22,8 @@ namespace DB.Repositories
         public DbContext Context => _context;
 
         public async Task<int> AddItemAsync(T item){
-            await _context.Set<T>().AddAsync(item);
-            return await SaveChangesAsync();
+                await _context.Set<T>().AddAsync(item);
+                return await SaveChangesAsync();
         }
 
         public async Task<int> AddItemsAsync(IEnumerable<T> items){
@@ -49,10 +50,9 @@ namespace DB.Repositories
         }
 
         public async Task<int> SaveChangesAsync(){
-            try{
+            try {
                 return await _context.SaveChangesAsync();
             }
-
 #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception ex) {
 #pragma warning restore CS0168 // Variable is declared but never used

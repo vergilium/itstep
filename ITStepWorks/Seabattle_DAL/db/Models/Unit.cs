@@ -11,9 +11,9 @@ namespace DB.Models
         {
             _context = new AppDbContext(new DbContextOptionsBuilder<AppDbContext>()
                 .UseMySQL(new MySqlConnectionStringBuilder {
-                    Server = "127.0.0.1",
+                    Server = "localhost",
                     Database = "Seabattle",
-                    UserID = "BattleShip",
+                    UserID = "battleship",
                     Password = "Seabattle"
                 }.ConnectionString)
                 .Options);
