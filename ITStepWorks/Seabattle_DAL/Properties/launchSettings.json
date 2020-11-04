@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Seabattle_DAL": {
+      "commandName": "Project",
+      "sqlDebugging": true,
+      "nativeDebugging": false
+    }
+  }
+}

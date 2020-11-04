@@ -18,7 +18,7 @@ namespace DB.Models
                 }.ConnectionString)
                 .Options);
 
-            _context.Database.EnsureDeleted();
+            //_context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
 
             UserRepository = new UserRepository(_context);

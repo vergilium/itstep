@@ -91,16 +91,17 @@ namespace DB.Models {
 		}
 
 		public static UserModel GetUser(string login, string pswd) {
-			return (UserModel)Unit.UserRepository.AllItems
-				.Include(u => u.Id)
-				.Include(u => u.login)
-				.Include(u => u.firstName)
-				.Include(u => u.lastName)
-				.Include(u => u.mail)
-				.Include(u => u.dateReg)
-				.Include(u => u.dateLastVisit)
-				.Where(u => u.login == login && u.pswd == pswd)
-				.Select(u => new UserModel(u));
+			return Unit.UserRepository.AllItems
+				.Where(u => u.login.Contains(login) && u.pswd.Contains(pswd))
+				//.Include(u => u.Id)
+				//.Include(u => u.login)
+				//.Include(u => u.firstName)
+				//.Include(u => u.lastName)
+				//.Include(u => u.mail)
+				//.Include(u => u.dateReg)
+				//.Include(u => u.dateLastVisit)
+				.Select(u => new UserModel(u))
+				.SingleOrDefault();
 		}
 
 		public static UserModel GetUser(string token) {

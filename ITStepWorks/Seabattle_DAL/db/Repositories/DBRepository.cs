@@ -54,7 +54,7 @@ namespace DB.Repositories
             }
 
 #pragma warning disable CS0168 // Variable is declared but never used
-            catch (Exception e) {
+            catch (Exception ex) {
 #pragma warning restore CS0168 // Variable is declared but never used
                 return -1;
             }
