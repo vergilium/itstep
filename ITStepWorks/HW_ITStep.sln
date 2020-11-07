@@ -209,7 +209,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HW_HTML_CSS_Lists", "HW_HTM
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "50784"
-		SlnRelativePath = "HW_HTML_CSS_Lists\"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW_NP", "HW_NP", "{393035A5-162D-40E9-8E5B-2307F478B84F}"
@@ -248,9 +247,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CW NP CS Seabattle", "CW NP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Seabattle_Server", "Seabattle_Server", "{38C27F3E-D061-4F08-8969-2B2A33D6D66B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seabattle_DAL", "Seabattle_DAL\Seabattle_DAL.csproj", "{170AA39E-34F0-4408-A2D3-7472F970430F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seabattle_ServerTest", "Seabattle_ServerTest\Seabattle_ServerTest.csproj", "{0C69E40F-4529-4AA8-A151-9112802BD3CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seabattle_DAL", "Seabattle_DAL\Seabattle_DAL.csproj", "{170AA39E-34F0-4408-A2D3-7472F970430F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1004,18 +1001,6 @@ Global
 		{170AA39E-34F0-4408-A2D3-7472F970430F}.Release|x64.Build.0 = Release|Any CPU
 		{170AA39E-34F0-4408-A2D3-7472F970430F}.Release|x86.ActiveCfg = Release|Any CPU
 		{170AA39E-34F0-4408-A2D3-7472F970430F}.Release|x86.Build.0 = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|x64.Build.0 = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Debug|x86.Build.0 = Debug|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|x64.ActiveCfg = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|x64.Build.0 = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|x86.ActiveCfg = Release|Any CPU
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1097,7 +1082,6 @@ Global
 		{41E8B54D-4CDC-4250-9D13-BC989C78C3AC} = {393035A5-162D-40E9-8E5B-2307F478B84F}
 		{38C27F3E-D061-4F08-8969-2B2A33D6D66B} = {41E8B54D-4CDC-4250-9D13-BC989C78C3AC}
 		{170AA39E-34F0-4408-A2D3-7472F970430F} = {38C27F3E-D061-4F08-8969-2B2A33D6D66B}
-		{0C69E40F-4529-4AA8-A151-9112802BD3CD} = {38C27F3E-D061-4F08-8969-2B2A33D6D66B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C1F0991-67EC-4A4F-91A9-2BF2996E67EC}

@@ -2,8 +2,6 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Validation;
 
 namespace Seabattle {
 	public static partial class DAL {
@@ -24,6 +22,24 @@ namespace Seabattle {
 				if (pswd.Length < 256) pswd = GetHash512(pswd);
 				token = GetToken(login, pswd);
 				await UserModel.PutUser(login, fname, lname, mail, token, pswd);
+			} catch (Exception ex) {
+				logger.LogError(ex.Message);
+				token = null;
+			}
+
+			return token;
+		}
+
+		public static async Task<string> Registration(object data) {
+			MSGModel user = (MSGModel)Convert.ChangeType(data, typeof(MSGModel));
+
+			//Trace
+			logger.LogTrace("Enter Registration method with parameters {0} : {1} : {2} : {3} : {4}", user.login, user.firstName, user.lastName, user.mail, user.pswd);
+			string token;
+			try {
+				if (user.pswd.Length < 256) user.pswd = GetHash512(user.pswd);
+				token = GetToken(user.login, user.pswd);
+				await UserModel.PutUser(user.login, user.firstName, user.lastName, user.mail, token, user.pswd);
 			} catch (Exception ex) {
 				logger.LogError(ex.Message);
 				token = null;

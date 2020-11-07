@@ -9,7 +9,7 @@ using System.Data.Entity.Validation;
 namespace DB.Repositories
 {
     public class DbRepository<T> : IDbRepository<T>
-        where T : class, IDbIdentity
+        where T : class, IDbIdentity<int>
     {
         DbContext _context;
 
@@ -38,14 +38,14 @@ namespace DB.Repositories
             return await SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> DeleteItemAsync(Guid id){
+        public async Task<bool> DeleteItemAsync(int id){
             T item = await _context.Set<T>().FindAsync(id);
             if (item == null) return false;
             _context.Set<T>().Remove(item);
             return await SaveChangesAsync() > 0;
         }
 
-        public async Task<T> GetItemAsync(Guid id){
+        public async Task<T> GetItemAsync(int id){
             return await _context.Set<T>().FindAsync(id);
         }
 

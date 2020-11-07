@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DB.Models {
 	public class UserModel {
-		public Guid id { get; set; }
+		public int id { get; set; }
 		public string login { get; set; }
 		public string firstName { get; set; }
 		public string lastName { get; set; }
@@ -78,7 +78,6 @@ namespace DB.Models {
 				string pswd) {
 			return await Unit.UserRepository.AddItemAsync(
 				new User {
-				Id = Guid.NewGuid(),
 				login = login,
 				firstName = fname,
 				lastName = lname,
@@ -93,13 +92,6 @@ namespace DB.Models {
 		public static UserModel GetUser(string login, string pswd) {
 			return Unit.UserRepository.AllItems
 				.Where(u => u.login.Contains(login) && u.pswd.Contains(pswd))
-				//.Include(u => u.Id)
-				//.Include(u => u.login)
-				//.Include(u => u.firstName)
-				//.Include(u => u.lastName)
-				//.Include(u => u.mail)
-				//.Include(u => u.dateReg)
-				//.Include(u => u.dateLastVisit)
 				.Select(u => new UserModel(u))
 				.SingleOrDefault();
 		}

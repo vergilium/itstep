@@ -13,19 +13,22 @@ namespace DB.Models
                 .UseMySQL(new MySqlConnectionStringBuilder {
                     Server = "localhost",
                     Database = "Seabattle",
-                    UserID = "battleship",
-                    Password = "Seabattle"
+                    UserID = "root",
+                    Password = "M@loivan123"
                 }.ConnectionString)
                 .Options);
 
-            //_context.Database.EnsureDeleted();
+            _context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
 
             UserRepository = new UserRepository(_context);
-            
+            RoomRepository = new RoomRepository(_context);
+            BattleRepository = new BattleRepository(_context);
         }
 
         public static AppDbContext _context { get; }
         public static IUserRepository UserRepository { get; }
+        public static IRoomRepository RoomRepository { get; }
+        public static IBattleRepository BattleRepository { get; }
     }
 }

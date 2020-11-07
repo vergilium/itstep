@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DB.Entities {
 	[Table("users")]
-	public class User : DbIdentity {
+	public class User : DbIdentity<int> {
 
 		[Column("Login")]
 		[StringLength(32)]
@@ -37,5 +37,7 @@ namespace DB.Entities {
 		public DateTime dateReg { get; set; }
 		[Column("DateLastVisit")]
 		public DateTime dateLastVisit { get; set; }
+
+		public List<RoomPlayers> roomPlayer { get; set; }
 	}
 }
