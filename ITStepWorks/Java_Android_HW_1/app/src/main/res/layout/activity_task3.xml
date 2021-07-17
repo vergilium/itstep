@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:columnCount="4"
+    android:orientation="horizontal"
+    android:id = "@+id/calc_main">
+
+    <TextView
+        android:id = "@+id/number_display"
+        android:layout_width="match_parent"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill"
+        android:text="0"
+        android:textSize="48dp"
+        android:textAlignment="textEnd"
+        />
+
+    <Button android:text="1" android:onClick="CalcHandler" />
+    <Button android:text="2" android:onClick="CalcHandler"/>
+    <Button android:text="3" android:onClick="CalcHandler"/>
+    <Button android:text="/" android:onClick="CalcHandler"/>
+    <Button android:text="4" android:onClick="CalcHandler"/>
+    <Button android:text="5" android:onClick="CalcHandler"/>
+    <Button android:text="6" android:onClick="CalcHandler"/>
+    <Button android:text="*" android:onClick="CalcHandler"/>
+    <Button android:text="7" android:onClick="CalcHandler"/>
+    <Button android:text="8" android:onClick="CalcHandler"/>
+    <Button android:text="9" android:onClick="CalcHandler"/>
+    <Button android:text="-" android:onClick="CalcHandler"/>
+    <Button
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:text="0"
+        android:onClick="CalcHandler" />
+    <Button android:text="00" android:onClick="CalcHandler" />
+    <Button
+        android:layout_rowSpan="3"
+        android:layout_gravity="fill"
+        android:text="+"
+        android:onClick="CalcHandler" />
+    <Button
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:text="="
+        android:onClick="CalcHandler" />
+</GridLayout>
